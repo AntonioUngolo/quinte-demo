@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quinte · Il gestionale per agenzie di musica ed eventi</title>
+<meta name="description" content="Il gestionale per agenzie di musica e intrattenimento: eventi, cast, contratti e incassi in un'unica app. Prova la demo gratis per 14 giorni.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-pagina="home">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home" aria-current="page">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<!-- 1. Hero -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 id="hero-title">Gli eventi della tua agenzia, <em>senza più fogli Excel.</em></h1>
+      <p class="hero-sub">Il gestionale per agenzie di musica e intrattenimento: eventi, cast, contratti e incassi in un'unica app.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-ghost" href="#prezzi">Vedi i prezzi</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo">
+        <img src="img/f-band-masseria.jpg" width="2000" height="1125" fetchpriority="high" alt="Una band suona dal vivo a un matrimonio in masseria, di sera, sotto le lucine, mentre gli ospiti ballano.">
+      </div>
+      <div class="browser hero-browser">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="img/app-cast.png" width="1440" height="955" fetchpriority="high" alt="Schermata di Quinte: scheda del matrimonio Cecilia e Vincenzo, scheda Cast artistico con i momenti dell'evento, gli artisti assegnati, lo stato degli incarichi, i cachet e il margine stimato.">
+      </div>
+      <div class="phone hero-phone">
+        <div class="phone-screen">
+          <img src="img/app-artista-mobile.png" width="390" height="1276" alt="L'area dell'artista sul telefono: prossimo evento, incarichi da accettare, eventi confermati e cachet dell'anno.">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Il problema -->
+<section class="sec problem" id="problema" aria-labelledby="problem-title">
+  <div class="wrap">
+    <figure class="problem-photo reveal" style="margin:0">
+      <img src="img/f-ufficio-caos.jpg" width="2000" height="1333" loading="lazy" alt="Il titolare di un'agenzia, la sera, al telefono davanti a una scrivania piena di fogli stampati, post-it e un calendario scritto a mano.">
+    </figure>
+    <div class="reveal d1">
+      <h2 class="h2" id="problem-title">Oggi un evento si regge su telefonate e fogli sparsi.</h2>
+      <ul class="pains">
+        <li><span class="pain-ico"><i class="ph ph-phone-call" aria-hidden="true"></i></span><p>Il cast si conferma con decine di telefonate e messaggi.</p></li>
+        <li><span class="pain-ico"><i class="ph ph-calendar-x" aria-hidden="true"></i></span><p>Lo stesso artista finisce su due eventi nella stessa data.</p></li>
+        <li><span class="pain-ico"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span><p>Ogni evento ha il suo gruppo WhatsApp, e le informazioni si perdono.</p></li>
+        <li><span class="pain-ico"><i class="ph ph-microsoft-excel-logo" aria-hidden="true"></i></span><p>Acconti, saldi e cachet vivono in un foglio che aggiorna solo una persona.</p></li>
+        <li><span class="pain-ico"><i class="ph ph-folders" aria-hidden="true"></i></span><p>I contratti sono sparsi tra email, stampanti e cartelle.</p></li>
+      </ul>
+      <p class="problem-close"><i class="ph ph-arrow-bend-down-right" aria-hidden="true"></i>Quinte mette tutto nello stesso posto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Come funziona -->
+<section class="sec how" id="come-funziona" aria-labelledby="how-title">
+  <div class="wrap">
+    <span class="eyebrow">Come funziona</span>
+    <h2 class="h2" id="how-title">Il giro di un evento, dalla prima data al saldo.</h2>
+    <p class="lead">Sei passaggi nella stessa app. Staff, artisti e clienti vedono ognuno la propria parte.</p>
+
+    <ol class="flow" style="list-style:none;padding-left:0">
+      <li class="flow-card reveal">
+        <div class="flow-stage">
+          <img class="frag frag-wide" src="img/passo-1-evento.jpg" width="1140" height="570" loading="lazy" alt="Testata della scheda di un matrimonio: nome, stato Confermato, data, location, invitati e i riquadri con data evento e numero di invitati.">
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">1</span>
+          <h3>Crei l'evento</h3>
+          <p>Data, location, chiesa o rito, invitati e cliente: tutto in una scheda.</p>
+        </div>
+      </li>
+      <li class="flow-card reveal d1">
+        <div class="flow-stage">
+          <img class="frag frag-cast" src="img/passo-2-cast.jpg" width="964" height="590" loading="lazy" alt="Tabella del cast di un evento: per ogni momento l'artista, il ruolo e lo stato dell'incarico In attesa.">
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">2</span>
+          <h3>Componi il cast per momento</h3>
+          <p>Aperitivo, cerimonia, sala, taglio torta. Cachet e dress code per ognuno.</p>
+        </div>
+      </li>
+      <li class="flow-card reveal d2">
+        <div class="flow-stage">
+          <div class="flow-phone"><img src="img/passo-3-artista.jpg" width="780" height="1480" loading="lazy" alt="Telefono dell'artista con gli incarichi da accettare e i prossimi eventi, ognuno con lo stato e il cachet."></div>
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">3</span>
+          <h3>L'artista accetta dal telefono</h3>
+          <p>Riceve la notifica, accetta o rifiuta. Tu vedi la risposta in tempo reale.</p>
+        </div>
+      </li>
+      <li class="flow-card reveal">
+        <div class="flow-stage">
+          <div class="flow-phone"><img src="img/passo-4-chat.jpg" width="780" height="1688" loading="lazy" alt="Chat dell'evento sul telefono: lo staff scrive al cast e gli artisti confermano il loro momento."></div>
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">4</span>
+          <h3>Coordini tutti nella chat dell'evento</h3>
+          <p>Staff e cast nello stesso posto, al posto del gruppo WhatsApp.</p>
+        </div>
+      </li>
+      <li class="flow-card reveal d1">
+        <div class="flow-stage">
+          <img class="frag frag-paper" src="img/passo-5-contratto.jpg" width="982" height="448" loading="lazy" alt="Prima pagina di un contratto di ingaggio artistico generato in automatico, con data, location, tipo di evento e momento della prestazione.">
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">5</span>
+          <h3>Il contratto si genera da solo</h3>
+          <p>Un PDF con i dati dell'evento: l'artista lo firma e lo ricarica, tu lo validi.</p>
+        </div>
+      </li>
+      <li class="flow-card reveal d2">
+        <div class="flow-stage">
+          <img class="frag frag-card" src="img/passo-6-saldo.jpg" width="720" height="608" loading="lazy" alt="Riepilogo economico di un evento: totale, acconti ricevuti, saldo residuo e la barra di quanto è già stato incassato.">
+        </div>
+        <div class="flow-body">
+          <span class="flow-num" aria-hidden="true">6</span>
+          <h3>Segui acconti e saldo</h3>
+          <p>Sai sempre quanto hai incassato e quanto manca.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="flow-hint" aria-hidden="true"><i class="ph ph-hand-swipe-left"></i>Scorri per vedere tutti i passaggi</p>
+  </div>
+</section>
+
+<!-- 4. Ruoli -->
+<section class="sec roles" id="ruoli" aria-labelledby="roles-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="roles-title">Un'app, quattro punti di vista.</h2>
+    <p class="lead reveal d1">Ognuno entra con il suo accesso e vede solo quello che gli serve.</p>
+
+    <div class="roles-tabs reveal d2" role="tablist" aria-label="Ruoli">
+      <button class="tab" role="tab" id="tab-staff" aria-controls="panel-staff" aria-selected="true"><i class="ph ph-users-three" aria-hidden="true"></i>Lo staff dell'agenzia</button>
+      <button class="tab" role="tab" id="tab-artisti" aria-controls="panel-artisti" aria-selected="false" tabindex="-1"><i class="ph ph-microphone-stage" aria-hidden="true"></i>Gli artisti</button>
+      <button class="tab" role="tab" id="tab-service" aria-controls="panel-service" aria-selected="false" tabindex="-1"><i class="ph ph-speaker-hifi" aria-hidden="true"></i>Il service</button>
+      <button class="tab" role="tab" id="tab-cliente" aria-controls="panel-cliente" aria-selected="false" tabindex="-1"><i class="ph ph-heart" aria-hidden="true"></i>Il cliente</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-staff" aria-labelledby="tab-staff" tabindex="0">
+      <div>
+        <h3>Tutto l'evento in una scheda.</h3>
+        <p>Calendario, anagrafiche di artisti, clienti e location, finanze. Da una sola app, anche dal telefono.</p>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Cast, pagamenti, musica e contratti di ogni evento</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Calendario con eventi, appuntamenti e assenze</li>
+          <li class="hide"><i class="ph ph-lock-key" aria-hidden="true"></i>Le finanze le vede solo il titolare</li>
+        </ul>
+      </div>
+      <div class="panel-visual has-browser">
+        <div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="Dashboard dello staff di Quinte con i numeri dell'anno, i prossimi eventi, gli appuntamenti e i clienti da richiamare."></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-artisti" aria-labelledby="tab-artisti" tabindex="0" hidden>
+      <div>
+        <h3>Sanno dove e quando suonare.</h3>
+        <p>Ogni artista vede i suoi incarichi con tutti i dettagli che servono la sera dell'evento.</p>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Accetta o rifiuta l'incarico dal telefono</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Dove e quando suonare, dress code e cachet</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il suo contratto, da firmare e ricaricare</li>
+          <li class="hide"><i class="ph ph-eye-slash" aria-hidden="true"></i>Non vede i cachet dei colleghi</li>
+        </ul>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-photo"><img src="img/f-cantante-telefono.jpg" width="1500" height="2000" loading="lazy" style="object-position:50% 30%" alt="Una cantante in abito nero, in camerino, sorride guardando il telefono."></div>
+        <div class="phone pv-phone"><div class="phone-screen"><img src="img/app-artista-mobile.png" width="390" height="1276" loading="lazy" alt="L'area dell'artista sul telefono con gli incarichi da accettare."></div></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-service" aria-labelledby="tab-service" tabindex="0" hidden>
+      <div>
+        <h3>Il service sa cosa montare e dove.</h3>
+        <p>Chi monta audio e luci arriva preparato, senza giri di telefonate il giorno prima.</p>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Dove montare e cosa serve per l'evento</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>La location aperta su Maps con un tocco</li>
+          <li class="hide"><i class="ph ph-eye-slash" aria-hidden="true"></i>Non vede i soldi</li>
+        </ul>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-photo"><img src="img/f-tecnico-service.jpg" width="2000" height="1333" loading="lazy" style="object-position:40% 50%" alt="Un tecnico del service con le cuffie regola il mixer accanto a una barra di luci, in una sala ricevimenti ancora vuota."></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-cliente" aria-labelledby="tab-cliente" tabindex="0" hidden>
+      <div>
+        <h3>Il cliente segue il suo evento.</h3>
+        <p>Gli sposi o chi organizza la festa trovano tutto in un'area tutta loro, senza doverti chiedere ogni volta.</p>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il suo evento, gli acconti e il contratto</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Sceglie i brani della playlist fino a una data che decidi tu</li>
+        </ul>
+      </div>
+      <div class="panel-visual pv-center">
+        <div class="phone"><div class="phone-screen"><img src="img/app-cliente-mobile.png" width="390" height="1204" loading="lazy" alt="L'area cliente sul telefono: il matrimonio di Elena e Marco, i giorni mancanti, la location, la playlist e il contratto da firmare."></div></div>
+      </div>
+    </div>
+
+    <p class="free-band reveal"><i class="ph ph-gift" aria-hidden="true"></i>Artisti, service e clienti accedono gratis e senza limiti, in tutti i piani.</p>
+  </div>
+</section>
+
+<!-- 5. Funzioni -->
+<section class="sec features" id="funzioni" aria-labelledby="feat-title" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="feat-title">Cosa trovi dentro Quinte.</h2>
+
+    <div class="bento">
+      <article class="cell c-scheda reveal">
+        <i class="ph ph-clipboard-text ico" aria-hidden="true"></i>
+        <h3>Scheda evento completa</h3>
+        <p>Tutto quello che riguarda un evento, diviso in sei sezioni.</p>
+        <ul class="chips" aria-label="Sezioni della scheda evento">
+          <li class="chip on"><i class="ph ph-squares-four" aria-hidden="true"></i>Panoramica</li>
+          <li class="chip"><i class="ph ph-microphone-stage" aria-hidden="true"></i>Cast</li>
+          <li class="chip"><i class="ph ph-hand-coins" aria-hidden="true"></i>Pagamenti</li>
+          <li class="chip"><i class="ph ph-music-notes" aria-hidden="true"></i>Musica</li>
+          <li class="chip"><i class="ph ph-speaker-hifi" aria-hidden="true"></i>Allestimento e service</li>
+          <li class="chip"><i class="ph ph-signature" aria-hidden="true"></i>Contratti</li>
+        </ul>
+      </article>
+
+      <article class="cell c-cal reveal d1">
+        <i class="ph ph-calendar-check ico" aria-hidden="true"></i>
+        <h3>Calendario dell'agenzia</h3>
+        <p>Eventi, appuntamenti e assenze. Vedi subito chi è già impegnato ed eviti il doppio ingaggio.</p>
+        <div class="sub-feat">
+          <strong>Date bloccate degli artisti</strong>
+          <p>L'artista segna i giorni in cui non è disponibile. Si accende e si spegne dalle opzioni.</p>
+        </div>
+        <div class="cal-shot"><img src="img/app-calendario-giorno.png" width="560" height="592" loading="lazy" alt="Pannello di un giorno del calendario: artisti già impegnati e artisti non disponibili per ferie o altro ingaggio."></div>
+      </article>
+
+      <article class="cell c-musica reveal d2">
+        <div class="musica-photo"><img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Primo piano delle mani di un musicista su un sassofono, con luci calde sfocate sullo sfondo."></div>
+        <div class="musica-body">
+          <i class="ph ph-music-notes ico" aria-hidden="true"></i>
+          <h3>Musica</h3>
+          <p>Repertorio per momento. La playlist la sceglie il cliente e si chiude da sola alla data che hai fissato.</p>
+        </div>
+      </article>
+
+      <article class="cell c-finanze reveal">
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <i class="ph ph-chart-line-up ico" aria-hidden="true"></i>
+          <h3>Finanze &amp; spese</h3>
+          <p>Acconti, spese per evento e dell'agenzia, margine, riepilogo mensile, export CSV.</p>
+        </div>
+        <div class="fin-crop"><img src="img/app-finanze.png" width="1440" height="1219" loading="lazy" alt="Riquadri della pagina Finanze: incassato, da incassare, spese e margine dell'anno."></div>
+      </article>
+
+      <article class="cell c-chat reveal">
+        <i class="ph ph-chat-circle-dots ico" aria-hidden="true"></i>
+        <h3>Chat e notifiche</h3>
+        <p>Una chat in tempo reale per ogni evento. Notifiche push per nuovo incarico, risposta dell'artista, rinvio e messaggi.</p>
+      </article>
+
+      <article class="cell c-contratti reveal d1">
+        <i class="ph ph-signature ico" aria-hidden="true"></i>
+        <h3>Contratti</h3>
+        <p>Generati dal tuo modello, firmati e archiviati nell'evento. Anche contratto e privacy del cliente.</p>
+      </article>
+
+      <article class="cell c-rinvii reveal d2">
+        <i class="ph ph-clock-counter-clockwise ico" aria-hidden="true"></i>
+        <h3>Rinvii e annullamenti</h3>
+        <p>Storico delle date e avviso automatico al cast.</p>
+      </article>
+
+      <article class="cell c-crm reveal d3">
+        <i class="ph ph-address-book ico" aria-hidden="true"></i>
+        <h3>CRM appuntamenti</h3>
+        <p>Prossimi incontri e clienti da richiamare. Dall'appuntamento nasce l'evento.</p>
+      </article>
+
+      <article class="cell c-marchio reveal">
+        <div class="swatches" aria-hidden="true">
+          <span style="background:#E8590C"></span><span style="background:#1F2A44"></span><span style="background:#F4F4F5"></span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <h3>Il tuo marchio</h3>
+          <p>Logo, colori e nome della tua agenzia dentro l'app.</p>
+        </div>
+      </article>
+
+      <article class="cell c-install reveal d1">
+        <i class="ph ph-device-mobile ico" aria-hidden="true"></i>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <h3>Si installa sul telefono</h3>
+          <p>È un'app web installabile: niente store, niente download da cercare.</p>
+        </div>
+      </article>
+    </div>
+    <p style="margin-top:28px"><a class="link-arrow" href="funzioni.html">Tutte le funzioni, una per una <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+  </div>
+</section>
+
+<!-- 6. AI in arrivo -->
+<section class="sec ai" id="ai" aria-labelledby="ai-title">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="badge"><i class="ph-fill ph-sparkle" aria-hidden="true"></i>In arrivo</span>
+      <h2 class="h2" id="ai-title">Chiedi al tuo assistente AI, lui guarda nel gestionale.</h2>
+      <p class="lead">Potrai collegare Claude o ChatGPT a Quinte. L'assistente lavora con i tuoi permessi: legge e prepara, tu confermi.</p>
+      <p class="ai-note"><i class="ph ph-seal-check" aria-hidden="true"></i><span>Quello che crea l'assistente resta <span class="status-pill">Da confermare</span> finché una persona dello staff non lo conferma.</span></p>
+      <p style="margin-top:22px"><a class="link-arrow" href="connessione-ai.html">Come funzionerà la connessione AI <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="asks reveal d1">
+      <div class="asks-label">Domande che potrai fare</div>
+      <p class="ask"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quali violinisti sono liberi sabato 13 giugno?</p>
+      <p class="ask"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quali eventi di maggio hanno artisti che non hanno ancora confermato?</p>
+      <p class="ask"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quanto devo ancora incassare questo mese?</p>
+      <p class="ask"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Aggiungi una spesa di 300 euro per le bollette.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Tipi di evento -->
+<section class="sec types" id="eventi" aria-labelledby="types-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="types-title">Per ogni tipo di evento.</h2>
+      <ul class="type-list">
+        <li><i class="ph ph-heart" aria-hidden="true"></i>Matrimoni</li>
+        <li><i class="ph ph-confetti" aria-hidden="true"></i><span>Feste private<small>Compleanni, anniversari, diciottesimi</small></span></li>
+        <li><i class="ph ph-briefcase" aria-hidden="true"></i>Eventi aziendali</li>
+        <li><i class="ph ph-church" aria-hidden="true"></i>Comunioni e battesimi</li>
+      </ul>
+      <p class="types-note">I dettagli religiosi, come chiesa e rito, compaiono solo quando servono.</p>
+    </div>
+    <div class="mosaic reveal d1">
+      <figure class="m-dj"><img src="img/f-dj-festa.jpg" width="1500" height="2000" loading="lazy" alt="Un DJ suona a una festa privata su una terrazza di notte, gli invitati ballano con le braccia alzate."></figure>
+      <figure class="m-q"><img src="img/f-quartetto-chiesa.jpg" width="2000" height="1333" loading="lazy" alt="Un quartetto d'archi suona durante una cerimonia in una chiesa barocca."></figure>
+      <figure class="m-sax"><img src="img/f-band-masseria.jpg" width="2000" height="1125" loading="lazy" style="object-position:62% 40%" alt="Il sassofonista e il cantante di una band sul palco di un matrimonio in masseria."></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Nato dentro un'agenzia vera -->
+<section class="sec origin" id="agenzia" aria-labelledby="origin-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="sr-only" id="origin-title">Nato dentro un'agenzia vera</h2>
+      <p class="origin-text">Quinte nasce per <strong>Benincasa Management</strong>, agenzia di musica e intrattenimento per eventi, e lo usa ogni giorno per gestire artisti, service ed eventi.</p>
+      <p style="margin-top:22px"><a class="link-arrow" href="chi-siamo.html">La nostra storia <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <figure class="quote-slot reveal d1" style="margin:0">
+      <i class="ph-fill ph-quotes" aria-hidden="true"></i>
+      <p>Citazione di Rosa Benincasa da raccogliere.</p>
+      <span>Rosa Benincasa, Benincasa Management</span>
+    </figure>
+  </div>
+</section>
+
+<!-- 9. Prezzi -->
+<section class="sec pricing" id="prezzi" aria-labelledby="price-title">
+  <div class="wrap">
+    <span class="eyebrow">Prezzi</span>
+    <h2 class="h2" id="price-title">Setup una volta, poi una licenza all'anno.</h2>
+    <p class="lead">Ogni agenzia ha la sua installazione dedicata: i dati sono solo suoi. La licenza annuale comprende aggiornamenti e assistenza.</p>
+    <p style="margin-top:18px"><a class="link-arrow" href="prezzi.html">Confronta i piani nel dettaglio <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>Small</h3>
+        <p class="plan-for">Band e piccole agenzie</p>
+        <div class="price">
+          <p class="price-main num">€ 690 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 1.200 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b class="num">2</b><span>staff (admin)</span></div>
+          <div class="limit"><b class="num">fino a 25</b><span>artisti nel roster</span></div>
+          <div class="limit"><b class="num">3</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Eventi, cast e conferme</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Chat, calendario, notifiche</li>
+          <li class="soon"><i class="ph ph-sparkle" aria-hidden="true"></i>Connessione AI (in arrivo)</li>
+        </ul>
+        <p class="hosting">Hosting gestito da noi, facoltativo: <b class="num">+ € 30/mese</b></p>
+        <a class="btn btn-ghost" href="piano-small.html">Scopri Small <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+
+      <article class="plan featured reveal d1">
+        <span class="plan-tag">Consigliato</span>
+        <h3>Medium</h3>
+        <p class="plan-for">Agenzie strutturate</p>
+        <div class="price">
+          <p class="price-main num">€ 1.790 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 2.500 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b class="num">5</b><span>staff (admin)</span></div>
+          <div class="limit"><b class="num">fino a 100</b><span>artisti nel roster</span></div>
+          <div class="limit"><b class="num">15</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Tutto Small</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Finanze e spese</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Contratti</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>CRM appuntamenti</li>
+        </ul>
+        <p class="hosting">Hosting gestito da noi, facoltativo: <b class="num">+ € 50/mese</b></p>
+        <a class="btn btn-primary" href="piano-medium.html">Scopri Medium <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+
+      <article class="plan reveal d2">
+        <h3>Large</h3>
+        <p class="plan-for">Più sedi o grandi volumi</p>
+        <div class="price">
+          <p class="price-main num">da € 3.500 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 5.000 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b>Illimitati</b><span>staff (admin)</span></div>
+          <div class="limit"><b>Illimitati</b><span>artisti nel roster</span></div>
+          <div class="limit"><b>Illimitati</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Tutto Medium</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Più sedi o team</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Personalizzazioni</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Assistenza prioritaria</li>
+        </ul>
+        <p class="hosting">Hosting: <b>di norma sul tuo server</b></p>
+        <a class="btn btn-ghost" href="piano-large.html">Scopri Large <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+    </div>
+
+    <div class="price-foot">
+      <div class="setup-box reveal">
+        <h3>Cosa comprende il setup</h3>
+        <ul class="setup-list">
+          <li><i class="ph ph-hard-drives" aria-hidden="true"></i>Installazione</li>
+          <li><i class="ph ph-globe-simple" aria-hidden="true"></i>Dominio e HTTPS</li>
+          <li><i class="ph ph-bell-ringing" aria-hidden="true"></i>Notifiche push</li>
+          <li><i class="ph ph-envelope-simple" aria-hidden="true"></i>Invio email</li>
+          <li><i class="ph ph-upload-simple" aria-hidden="true"></i>Import dei tuoi dati</li>
+          <li><i class="ph ph-palette" aria-hidden="true"></i>Logo e colori</li>
+          <li><i class="ph ph-file-text" aria-hidden="true"></i>Modelli di contratto</li>
+          <li><i class="ph ph-chalkboard-teacher" aria-hidden="true"></i>Formazione dello staff (2-4 ore)</li>
+        </ul>
+      </div>
+      <div class="all-box reveal d1">
+        <h3>In tutti i piani</h3>
+        <ul class="setup-list">
+          <li><i class="ph ph-users-three" aria-hidden="true"></i>Artisti, service e clienti gratis e senza limiti</li>
+          <li><i class="ph ph-sparkle" aria-hidden="true"></i>Connessione AI (in arrivo)</li>
+        </ul>
+        <p class="vat">Tutti i prezzi sono IVA esclusa.</p>
+      </div>
+    </div>
+
+    <div class="founders reveal">
+      <div class="founders-txt">
+        <i class="ph ph-handshake" aria-hidden="true"></i>
+        <div>
+          <h3>Offerta Fondatori</h3>
+          <p>Prezzo bloccato per le prime 5 agenzie, in cambio di un parere sincero ogni mese.</p>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="demo.html">Prova la demo gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+
+<!-- 11. Domande frequenti -->
+<section class="sec faq" id="domande" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="faq-title">Domande frequenti</h2>
+      <p style="margin-top:18px"><a class="link-arrow" href="domande.html">Tutte le domande <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Devo installare qualcosa?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No: si apre dal browser e si installa sul telefono come un'app, senza store.</p>
+      </details>
+      <details>
+        <summary>I dati di chi sono?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Tuoi. Ogni agenzia ha la sua installazione separata, sul nostro server dedicato o sul tuo.</p>
+      </details>
+      <details>
+        <summary>Artisti e service pagano?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. Accedono gratis e senza limiti in tutti i piani.</p>
+      </details>
+      <details>
+        <summary>Funziona anche per eventi che non sono matrimoni?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Sì: feste private, aziendali, comunioni, battesimi. Chiesa e rito compaiono solo quando servono.</p>
+      </details>
+      <details>
+        <summary>Posso usare il logo e i colori della mia agenzia?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Sì, li imposti tu dalle opzioni.</p>
+      </details>
+      <details>
+        <summary>Come si parte?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Con il setup: importiamo artisti, clienti e location, prepariamo i modelli di contratto e formiamo il tuo staff.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

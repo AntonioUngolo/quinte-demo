@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Contatti · Quinte</title>
+<meta name="description" content="Scrivici per informazioni, prezzi o assistenza su Quinte, il gestionale per agenzie di musica e intrattenimento. Rispondiamo entro un giorno lavorativo.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per contatti.html */
+.contact-page{padding:clamp(28px,4vw,48px) 0 clamp(40px,5vw,64px)}
+.contact-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,80px);align-items:start}
+.contact-side h1{margin-top:20px;font-size:clamp(2.1rem,3.6vw,3.1rem);letter-spacing:-.04em;line-height:1.06;max-width:14ch}
+.contact-side h1 em{font-style:normal;color:var(--accent)}
+.contact-side .lead{margin-top:18px;font-size:clamp(1.05rem,1.3vw,1.18rem);max-width:42ch}
+.reach{margin-top:32px;display:grid;gap:0;border-top:1px solid var(--line)}
+.reach li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--line)}
+.reach .r-ico{width:40px;height:40px;border-radius:11px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;font-size:20px}
+.reach .r-label{display:block;font-size:14px;font-weight:600;color:var(--muted)}
+.reach .r-value{display:block;font-weight:650;color:var(--ink);overflow-wrap:anywhere}
+.reach a.r-value{color:var(--accent);text-decoration:none}
+.reach a.r-value:hover{text-decoration:underline;text-underline-offset:3px}
+.placeholder{display:inline-block;margin-top:6px;padding:2px 8px;border-radius:6px;border:1px dashed var(--line-strong);background:var(--sunk);color:var(--ink-2);font-size:13.5px;font-weight:600}
+.reach .r-value.placeholder{display:inline-block;margin-top:2px;font-size:15px}
+.shortcuts{margin-top:28px;display:grid;gap:12px}
+.shortcut{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface);text-decoration:none;color:var(--ink);transition:border-color .2s,transform .3s var(--ease)}
+.shortcut:hover{border-color:var(--line-strong);transform:translateY(-1px)}
+.shortcut > i{font-size:24px;color:var(--accent);flex-shrink:0}
+.shortcut b{display:block}
+.shortcut span{display:block;font-size:14.5px;color:var(--muted)}
+.shortcut .ph-arrow-right{margin-left:auto;font-size:18px;color:var(--muted)}
+.topic{grid-template-columns:repeat(4,minmax(0,1fr))}
+textarea.input{resize:vertical;min-height:150px;line-height:1.5}
+.done h2{margin-top:12px;font-size:1.6rem}
+.done .btn{margin-top:22px}
+@media (max-width:959px){.contact-layout{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:719px){.seg.topic{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body data-pagina="contatti">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti" aria-current="page">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti" aria-current="page">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<section class="contact-page" aria-labelledby="contact-title">
+  <div class="wrap contact-layout">
+
+    <div class="contact-side">
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Contatti</span>
+      </nav>
+      <h1 id="contact-title">Scrivici, <em>ti rispondiamo.</em></h1>
+      <p class="lead">Domande sul gestionale, sui prezzi o sul setup: lasciaci un messaggio e ti rispondiamo entro un giorno lavorativo.</p>
+
+      <ul class="reach">
+        <li>
+          <span class="r-ico"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+          <div>
+            <span class="r-label">Email</span>
+            <a class="r-value" href="mailto:ciao@quinte.app">ciao@quinte.app</a>
+            <span class="placeholder">Segnaposto: il dominio non è ancora deciso</span>
+          </div>
+        </li>
+        <li>
+          <span class="r-ico"><i class="ph ph-clock" aria-hidden="true"></i></span>
+          <div>
+            <span class="r-label">Tempi di risposta</span>
+            <span class="r-value">Entro un giorno lavorativo</span>
+          </div>
+        </li>
+        <li>
+          <span class="r-ico"><i class="ph ph-phone" aria-hidden="true"></i></span>
+          <div>
+            <span class="r-label">Telefono</span>
+            <span class="r-value placeholder">[Numero di telefono da definire]</span>
+          </div>
+        </li>
+        <li>
+          <span class="r-ico"><i class="ph ph-buildings" aria-hidden="true"></i></span>
+          <div>
+            <span class="r-label">Sede</span>
+            <span class="r-value placeholder">[Ragione sociale e indirizzo da definire]</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="form-card">
+        <form data-valida data-fatto="contatti-fatto" aria-label="Scrivici un messaggio">
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-nome">Nome e cognome <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="c-nome" name="nome" type="text" autocomplete="name" required
+                     data-err="ce-nome" data-msg="Scrivi il tuo nome e cognome." data-msg-formato="Il nome sembra troppo corto."
+                     aria-describedby="ce-nome">
+              <p class="err" id="ce-nome" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+            <div class="field">
+              <label for="c-email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input class="input" id="c-email" name="email" type="email" autocomplete="email" inputmode="email" required
+                     data-err="ce-email" data-msg="Scrivi la tua email, così possiamo risponderti." data-msg-formato="Controlla l'email: sembra incompleta."
+                     aria-describedby="ce-email">
+              <p class="err" id="ce-email" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+            <div class="field full">
+              <label for="c-tel">Telefono <span class="opt">(facoltativo, se preferisci che ti chiamiamo)</span></label>
+              <input class="input" id="c-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel">
+            </div>
+
+            <fieldset class="field full">
+              <legend>Di cosa vuoi parlarci?</legend>
+              <div class="seg topic">
+                <div class="opt-box"><input type="radio" id="arg1" name="argomento" value="informazioni" checked><label for="arg1">Informazioni</label></div>
+                <div class="opt-box"><input type="radio" id="arg2" name="argomento" value="prezzi"><label for="arg2">Prezzi</label></div>
+                <div class="opt-box"><input type="radio" id="arg3" name="argomento" value="assistenza"><label for="arg3">Assistenza</label></div>
+                <div class="opt-box"><input type="radio" id="arg4" name="argomento" value="altro"><label for="arg4">Altro</label></div>
+              </div>
+            </fieldset>
+
+            <div class="field full">
+              <label for="c-msg">Messaggio <span class="req" aria-hidden="true">*</span></label>
+              <textarea class="input" id="c-msg" name="messaggio" rows="6" minlength="10" required
+                        data-err="ce-msg" data-msg="Scrivi il tuo messaggio." data-msg-formato="Il messaggio è un po' corto: aggiungi qualche dettaglio."
+                        aria-describedby="ce-msg"></textarea>
+              <p class="err" id="ce-msg" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+
+            <div class="field full">
+              <label class="privacy" for="c-privacy">
+                <input id="c-privacy" name="privacy" type="checkbox" required
+                       data-err="ce-privacy" data-msg="Per risponderti serve il consenso all'informativa privacy."
+                       aria-describedby="ce-privacy">
+                <span>Ho letto l'<a href="privacy.html">informativa privacy</a> e accetto di essere ricontattato per una risposta al mio <span style="white-space:nowrap">messaggio. <span class="req" aria-hidden="true">*</span></span></span>
+              </label>
+              <p class="err" id="ce-privacy" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Invia il messaggio <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></button>
+            <small>I campi con <span class="req">*</span> sono obbligatori.</small>
+          </div>
+        </form>
+
+        <div class="done" id="contatti-fatto" tabindex="-1" role="status" hidden>
+          <i class="ph-fill ph-check-circle" aria-hidden="true"></i>
+          <h2>Messaggio inviato.</h2>
+          <p>Grazie. Ti rispondiamo entro un giorno lavorativo all'email che ci hai lasciato.</p>
+          <a class="btn btn-ghost" href="index.html">Torna alla home</a>
+        </div>
+      </div>
+
+      <div class="shortcuts">
+        <a class="shortcut" href="domande.html">
+          <i class="ph ph-question" aria-hidden="true"></i>
+          <div><b>Domande frequenti</b><span>Dati, prezzi, setup e demo: forse la risposta c'è già.</span></div>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+        <a class="shortcut" href="demo.html">
+          <i class="ph ph-play-circle" aria-hidden="true"></i>
+          <div><b>Prova la demo gratis</b><span>14 giorni con dati di esempio, senza carta.</span></div>
+          <i class="ph ph-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

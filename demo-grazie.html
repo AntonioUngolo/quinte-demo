@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Richiesta ricevuta · Quinte</title>
+<meta name="description" content="Abbiamo ricevuto la tua richiesta di demo: ti scriviamo entro un giorno lavorativo con l'accesso.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per demo-grazie.html */
+.ok-mark{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:7px 14px 7px 10px;border-radius:999px;background:#ECFDF3;border:1px solid #ABEFC6;color:var(--success);font-weight:650;font-size:14.5px}
+.ok-mark i{font-size:20px}
+.thanks .page-head h1{margin-top:16px;max-width:18ch}
+.thanks .page-head-visual .photo{aspect-ratio:16/11}
+.thanks .page-head-visual .photo img{object-position:50% 60%}
+.after{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,80px);align-items:start}
+.after h2{font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.03em}
+.timeline{margin:28px 0 0;padding:0;list-style:none;display:grid;gap:0}
+.after-sec{padding-top:clamp(56px,7vw,96px)}
+.timeline li{display:grid;grid-template-columns:44px 1fr;gap:16px;position:relative;padding-bottom:26px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:21px;top:46px;bottom:4px;width:2px;background:var(--accent-line)}
+.timeline li:last-child::before{display:none}
+.timeline .t-ico{width:44px;height:44px;border-radius:12px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;font-size:22px}
+.timeline b{display:block;color:var(--ink);font-size:1.05rem;padding-top:9px}
+.timeline p{margin-top:4px;color:var(--ink-2);max-width:40ch}
+.meanwhile{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;margin-top:28px}
+.go-card{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-box);background:var(--surface);text-decoration:none;color:var(--ink);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .2s}
+.go-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.go-card .go-body{padding:22px 24px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.go-card h3{font-size:1.2rem;letter-spacing:-.02em}
+.go-card p{color:var(--muted);font-size:15.5px}
+.go-card .link-arrow{margin-top:auto;padding-top:8px}
+.go-shot{background:var(--sunk);padding:18px 18px 0;border-bottom:1px solid var(--line)}
+.go-shot .browser{border-bottom-left-radius:0;border-bottom-right-radius:0;box-shadow:var(--shadow-sm)}
+.go-shot .crop{aspect-ratio:16/9;overflow:hidden}
+.go-shot .crop img{width:100%;height:100%;object-fit:cover;object-position:100% 0}
+.go-ai{background:var(--accent-tint);border-color:var(--accent-line)}
+.go-ai .go-body{padding-top:26px}
+.go-ai .status-pill{margin-left:0;align-self:flex-start}
+.go-ai blockquote{margin:6px 0 0;padding:14px 16px;border-radius:14px 14px 14px 4px;background:var(--surface);border:1px solid var(--accent-line);font-weight:550;color:var(--ink);font-size:15.5px}
+.back-home{margin-top:28px}
+@media (max-width:959px){.after{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:639px){.meanwhile{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body data-pagina="demo-grazie">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main" class="thanks">
+
+<section class="page-head" aria-labelledby="ok-title">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><a href="demo.html">Prova la demo</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Richiesta ricevuta</span>
+      </nav>
+      <p class="ok-mark"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Richiesta ricevuta</p>
+      <h1 id="ok-title">Fatto. Ti scriviamo entro <em>un giorno lavorativo.</em></h1>
+      <p class="lead">Riceverai un'email con l'accesso alla demo: dati di esempio già caricati e 14 giorni per provarla con il tuo staff. Nessun pagamento.</p>
+    </div>
+    <div class="page-head-visual">
+      <div class="photo">
+        <img src="img/f-band-masseria.jpg" width="2000" height="1125" alt="Una band suona dal vivo a un matrimonio in masseria, di sera, mentre gli ospiti ballano sotto le lucine.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec after-sec" aria-labelledby="after-title">
+  <div class="wrap after">
+    <div>
+      <h2 id="after-title">Cosa succede adesso</h2>
+      <ol class="timeline">
+        <li>
+          <span class="t-ico"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+          <div><b>Controlla la posta</b><p>Entro un giorno lavorativo ti arriva l'email con l'accesso. Se non la vedi, guarda anche nella posta indesiderata.</p></div>
+        </li>
+        <li>
+          <span class="t-ico"><i class="ph ph-sign-in" aria-hidden="true"></i></span>
+          <div><b>Entra nella demo</b><p>Trovi eventi, artisti e clienti di esempio già caricati: parti subito, senza inserire niente.</p></div>
+        </li>
+        <li>
+          <span class="t-ico"><i class="ph ph-users" aria-hidden="true"></i></span>
+          <div><b>Provala con il tuo staff</b><p>Hai 14 giorni per usarla con calma, titolare e collaboratori.</p></div>
+        </li>
+      </ol>
+      <p class="back-home"><a class="link-arrow" href="index.html"><i class="ph ph-arrow-left" aria-hidden="true"></i> Torna alla home</a></p>
+    </div>
+
+    <div>
+      <h2>Nel frattempo</h2>
+      <div class="meanwhile">
+        <a class="go-card" href="funzioni.html">
+          <div class="go-shot" aria-hidden="true">
+            <div class="browser">
+              <div class="browser-bar"><span></span><span></span><span></span></div>
+              <div class="crop"><img src="img/app-cast.png" width="1440" height="955" loading="lazy" alt=""></div>
+            </div>
+          </div>
+          <div class="go-body">
+            <h3>Guarda tutte le funzioni</h3>
+            <p>Eventi, cast, calendario, contratti, pagamenti e le aree di artisti, service e clienti.</p>
+            <span class="link-arrow">Vai alle funzioni <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+        <a class="go-card go-ai" href="connessione-ai.html">
+          <div class="go-body">
+            <span class="status-pill">In arrivo</span>
+            <h3>La connessione con l'AI</h3>
+            <p>Collegherai il tuo assistente AI al gestionale. Legge e prepara, tu confermi.</p>
+            <blockquote>«Quali violinisti sono liberi sabato 13 giugno?»</blockquote>
+            <span class="link-arrow">Scopri come funzionerà <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

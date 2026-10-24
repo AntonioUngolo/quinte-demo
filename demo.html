@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Prova la demo gratis · Quinte</title>
+<meta name="description" content="Registrati alla demo gratuita di Quinte: ricevi l'accesso entro un giorno lavorativo, con dati di esempio, e la provi per 14 giorni con il tuo staff. Non serve la carta.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per demo.html: testata e form nella stessa prima schermata */
+.demo-page{padding:clamp(28px,4vw,48px) 0 clamp(64px,8vw,112px)}
+.demo-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);grid-template-areas:"head form" "next form";column-gap:clamp(36px,5vw,80px);align-items:start}
+.demo-head{grid-area:head}
+.demo-head h1{margin-top:20px;font-size:clamp(2.1rem,3.6vw,3.1rem);letter-spacing:-.04em;line-height:1.06;max-width:16ch}
+.demo-head h1 em{font-style:normal;color:var(--accent)}
+.demo-head .lead{margin-top:18px;font-size:clamp(1.05rem,1.3vw,1.18rem);max-width:44ch}
+.demo-next{grid-area:next;margin-top:36px}
+.demo-next h2{font-size:1.15rem;letter-spacing:-.02em}
+.demo-next .demo-points{margin-top:18px}
+.demo-next .demo-shot{margin-top:32px}
+.demo-layout .form-card{grid-area:form}
+.form-intro{font-size:15px;color:var(--muted);margin-bottom:24px}
+.plan-pick{grid-template-columns:repeat(4,minmax(0,1fr))}
+.plan-pick .opt-box label{flex-direction:column;gap:2px;min-height:64px;padding:10px 8px}
+.plan-pick .opt-box label small{font-size:13px;font-weight:500;color:var(--muted);line-height:1.3}
+.plan-pick .opt-box input:checked + label small{color:var(--accent-hover)}
+.plan-link{margin-top:4px;font-size:14.5px;align-self:flex-start}
+.demo-faq{border-top:1px solid var(--line)}
+.demo-faq .faq-side p{margin-top:14px;color:var(--muted);max-width:34ch}
+.demo-faq .faq-side .link-arrow{margin-top:18px}
+@media (max-width:959px){
+  .demo-layout{grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "form" "next"}
+  .demo-layout .form-card{margin-top:32px}
+  .demo-next{margin-top:48px}
+  .demo-next .demo-shot{display:none}
+}
+@media (max-width:719px){.seg.plan-pick{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body data-pagina="demo">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<section class="demo-page" aria-labelledby="demo-title">
+  <div class="wrap demo-layout">
+
+    <div class="demo-head">
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Prova la demo</span>
+      </nav>
+      <h1 id="demo-title">Prova la demo <em>gratis.</em></h1>
+      <p class="lead">Ti registri, ricevi l'accesso a una demo con dati di esempio e la provi per 14 giorni con il tuo staff.</p>
+    </div>
+
+    <div class="form-card">
+      <p class="form-intro">Ci servono pochi dati per prepararti l'accesso. I campi con <span class="req">*</span> sono obbligatori.</p>
+      <form data-valida data-dopo="demo-grazie.html" aria-labelledby="demo-title">
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-nome">Nome e cognome <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-nome" name="nome" type="text" autocomplete="name" required
+                   data-err="e-nome" data-msg="Scrivi il tuo nome e cognome." data-msg-formato="Il nome sembra troppo corto."
+                   aria-describedby="e-nome">
+            <p class="err" id="e-nome" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-agenzia">Nome dell'agenzia <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-agenzia" name="agenzia" type="text" autocomplete="organization" required
+                   data-err="e-agenzia" data-msg="Scrivi il nome della tua agenzia." data-msg-formato="Il nome dell'agenzia sembra troppo corto."
+                   aria-describedby="e-agenzia">
+            <p class="err" id="e-agenzia" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required
+                   data-err="e-email" data-msg="Scrivi la tua email." data-msg-formato="Controlla l'email: sembra incompleta."
+                   aria-describedby="e-email">
+            <p class="err" id="e-email" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+          <div class="field">
+            <label for="f-tel">Telefono <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required
+                   data-err="e-tel" data-msg="Scrivi un numero di telefono." data-msg-formato="Controlla il numero: servono almeno 6 cifre."
+                   aria-describedby="e-tel">
+            <p class="err" id="e-tel" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+          <div class="field full">
+            <label for="f-citta">Città <span class="opt">(facoltativo)</span></label>
+            <input class="input" id="f-citta" name="citta" type="text" autocomplete="address-level2">
+          </div>
+
+          <fieldset class="field full">
+            <legend>Quale piano ti interessa? <span class="opt">(facoltativo)</span></legend>
+            <div class="seg plan-pick">
+              <div class="opt-box"><input type="radio" id="p-small" name="piano" value="small"><label for="p-small">Small<small>Band e piccole agenzie</small></label></div>
+              <div class="opt-box"><input type="radio" id="p-medium" name="piano" value="medium"><label for="p-medium">Medium<small>Agenzie strutturate</small></label></div>
+              <div class="opt-box"><input type="radio" id="p-large" name="piano" value="large"><label for="p-large">Large<small>Più sedi o grandi volumi</small></label></div>
+              <div class="opt-box"><input type="radio" id="p-nonso" name="piano" value="non-so"><label for="p-nonso">Non so ancora<small>Ne parliamo insieme</small></label></div>
+            </div>
+            <a class="link-arrow plan-link" href="prezzi.html">Confronta i piani e i prezzi <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </fieldset>
+
+          <fieldset class="field full">
+            <legend>Quanti artisti gestite? <span class="opt">(facoltativo)</span></legend>
+            <div class="seg">
+              <div class="opt-box"><input type="radio" id="a1" name="artisti" value="fino-25"><label for="a1">Fino a 25</label></div>
+              <div class="opt-box"><input type="radio" id="a2" name="artisti" value="25-100"><label for="a2">Da 25 a 100</label></div>
+              <div class="opt-box"><input type="radio" id="a3" name="artisti" value="oltre-100"><label for="a3">Più di 100</label></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="field full">
+            <legend>Che eventi fate? <span class="opt">(facoltativo, anche più di uno)</span></legend>
+            <div class="checks">
+              <div class="opt-box"><input type="checkbox" id="t1" name="eventi" value="matrimoni"><label for="t1"><i class="ph ph-square" aria-hidden="true"></i><i class="ph-fill ph-check-square" aria-hidden="true"></i>Matrimoni</label></div>
+              <div class="opt-box"><input type="checkbox" id="t2" name="eventi" value="feste-private"><label for="t2"><i class="ph ph-square" aria-hidden="true"></i><i class="ph-fill ph-check-square" aria-hidden="true"></i>Feste private</label></div>
+              <div class="opt-box"><input type="checkbox" id="t3" name="eventi" value="aziendali"><label for="t3"><i class="ph ph-square" aria-hidden="true"></i><i class="ph-fill ph-check-square" aria-hidden="true"></i>Aziendali</label></div>
+              <div class="opt-box"><input type="checkbox" id="t4" name="eventi" value="comunioni-battesimi"><label for="t4"><i class="ph ph-square" aria-hidden="true"></i><i class="ph-fill ph-check-square" aria-hidden="true"></i>Comunioni e battesimi</label></div>
+              <div class="opt-box"><input type="checkbox" id="t5" name="eventi" value="altro"><label for="t5"><i class="ph ph-square" aria-hidden="true"></i><i class="ph-fill ph-check-square" aria-hidden="true"></i>Altro</label></div>
+            </div>
+          </fieldset>
+
+          <div class="field full">
+            <label class="privacy" for="f-privacy">
+              <input id="f-privacy" name="privacy" type="checkbox" required
+                     data-err="e-privacy" data-msg="Per attivare la demo serve il consenso all'informativa privacy."
+                     aria-describedby="e-privacy">
+              <span>Ho letto l'<a href="privacy.html">informativa privacy</a> e accetto di essere ricontattato per la <span style="white-space:nowrap">demo. <span class="req" aria-hidden="true">*</span></span></span>
+            </label>
+            <p class="err" id="e-privacy" hidden><i class="ph-fill ph-warning-circle" aria-hidden="true"></i><span></span></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+          <small>Nessun pagamento, non serve la carta.</small>
+        </div>
+      </form>
+    </div>
+
+    <div class="demo-next">
+      <h2>Cosa succede dopo</h2>
+      <ul class="demo-points">
+        <li><i class="ph ph-envelope-simple" aria-hidden="true"></i><span><b>Accesso entro un giorno lavorativo</b>Ti scriviamo all'email che ci lasci, con l'accesso alla demo.</span></li>
+        <li><i class="ph ph-database" aria-hidden="true"></i><span><b>Dati di esempio già caricati</b>Eventi, artisti e clienti di prova, per partire subito.</span></li>
+        <li><i class="ph ph-users" aria-hidden="true"></i><span><b>14 giorni con il tuo staff</b>Il tempo per provarla con calma, titolare e collaboratori.</span></li>
+        <li><i class="ph ph-credit-card" aria-hidden="true"></i><span><b>Nessun pagamento</b>La demo è gratuita e non ti chiediamo la carta.</span></li>
+      </ul>
+      <div class="browser demo-shot">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="La dashboard dello staff: eventi confermati, prossimi eventi, appuntamenti e clienti da richiamare.">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec faq demo-faq" aria-labelledby="dfaq-title">
+  <div class="wrap">
+    <div class="faq-side">
+      <h2 class="h2" id="dfaq-title">Domande sulla demo</h2>
+      <p>Quello che conviene sapere prima di registrarsi.</p>
+      <a class="link-arrow" href="domande.html#demo">Tutte le domande frequenti <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Quanto dura la demo?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>14 giorni, da usare con calma insieme al tuo staff.</p>
+      </details>
+      <details>
+        <summary>Devo pagare o lasciare la carta?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. La demo è gratuita e non serve nessun metodo di pagamento.</p>
+      </details>
+      <details>
+        <summary>Cosa trovo dentro?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Il gestionale con dati di esempio già caricati: eventi, artisti e clienti di prova, così parti subito senza inserire niente.</p>
+      </details>
+      <details>
+        <summary>Posso provarla con il mio staff?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Sì, la demo è pensata per essere provata insieme: titolare e collaboratori.</p>
+      </details>
+      <details>
+        <summary>Devo installare qualcosa?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No: si apre dal browser e si installa sul telefono come un'app, senza store.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

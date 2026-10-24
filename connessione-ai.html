@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Connessione AI · Quinte</title>
+<meta name="description" content="In arrivo: collegherai Claude, ChatGPT o un altro assistente compatibile con i connettori MCP a Quinte. Lavora con i tuoi permessi, legge e prepara, tu confermi.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per connessione-ai.html */
+.ai-head{background:linear-gradient(180deg,var(--bg) 0%,var(--accent-tint) 100%)}
+.ai-head .badge{margin:22px 0 0}
+.ai-head h1{margin-top:16px}
+.ai-head-visual{padding:0 0 64px 0}
+.ai-head-visual .photo{aspect-ratio:4/3}
+.ai-head-visual .photo img{object-position:40% 50%}
+.q-float{position:absolute;left:clamp(-40px,-3vw,-16px);bottom:0;max-width:min(380px,78%)}
+@media (prefers-reduced-motion:no-preference){
+  .ai-copy > *{animation:aiRise .9s var(--ease) both}
+  .ai-copy > *:nth-child(2){animation-delay:.05s}
+  .ai-copy > *:nth-child(3){animation-delay:.1s}
+  .ai-copy > *:nth-child(4){animation-delay:.15s}
+  .ai-copy > *:nth-child(5){animation-delay:.2s}
+  .ai-head-visual .photo{animation:aiRise 1s var(--ease) .1s both}
+  .q-float{animation:aiRise 1s var(--ease) .45s both}
+  @keyframes aiRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+}
+
+/* Fumetto domanda */
+.q{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px 16px 16px 4px;padding:16px 18px;box-shadow:var(--shadow-md);font-weight:600;color:var(--ink);line-height:1.45}
+.q i{color:var(--accent);font-size:20px;margin-top:1px;flex-shrink:0}
+
+/* Come si collega */
+.link-sec .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(36px,5vw,88px);align-items:start}
+.moves{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.moves li{position:relative;display:grid;grid-template-columns:56px 1fr;gap:20px;padding-bottom:36px}
+.moves li:last-child{padding-bottom:0}
+.moves li::before{content:"";position:absolute;left:27px;top:60px;bottom:4px;width:2px;background:var(--accent-line)}
+.moves li:last-child::before{display:none}
+.m-ico{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--accent-line);color:var(--accent);font-size:26px;box-shadow:var(--shadow-sm)}
+.moves li:last-child .m-ico{background:var(--accent);border-color:var(--accent);color:#FFFDFB}
+.moves h3{margin-top:6px;font-size:1.25rem}
+.moves p{margin-top:6px;color:var(--muted);max-width:46ch}
+
+/* Domande */
+.asks-sec{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.q-grid{margin-top:48px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px clamp(20px,4vw,56px)}
+.q-col{display:grid;gap:22px;align-content:start}
+.q-col + .q-col{margin-top:56px}
+.q-item .q{box-shadow:var(--shadow-sm)}
+.q-meta{margin:10px 0 0 22px;display:flex;align-items:center;gap:8px;font-size:14.5px;color:var(--muted)}
+.q-meta i{font-size:16px;color:var(--accent)}
+.q-meta b{font-weight:650;color:var(--ink-2)}
+.q-item.write .q{border-color:var(--accent-line);background:var(--accent-tint)}
+
+/* Cosa legge e cosa fa */
+.scope-grid{margin-top:48px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-areas:"legge crea" "legge no";gap:16px}
+.scope{border-radius:var(--r-box);border:1px solid var(--line);padding:clamp(22px,3vw,36px);background:var(--surface)}
+.scope h3{font-size:1.3rem;display:flex;align-items:center;gap:12px}
+.scope h3 i{font-size:26px;color:var(--accent)}
+.scope > p{margin-top:8px;color:var(--muted)}
+.s-legge{grid-area:legge;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:28px;align-items:start}
+.s-legge .ticks{margin-top:20px}
+.s-legge .shot{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-md);background:var(--surface)}
+.s-legge .nochat{margin-top:20px;display:flex;align-items:center;gap:10px;color:var(--ink-2);font-weight:600;font-size:15.5px}
+.s-legge .nochat i{color:var(--muted);font-size:20px}
+.s-crea{grid-area:crea;background:var(--accent-tint);border-color:var(--accent-line)}
+.s-crea .chips{margin-top:16px}
+.s-crea .chip{background:var(--surface)}
+.s-no{grid-area:no;background:var(--sunk)}
+.s-no ul{margin-top:16px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px}
+.s-no li{display:flex;gap:10px;align-items:center;color:var(--ink-2);font-weight:550;font-size:15.5px}
+.s-no li i{font-size:19px;color:var(--muted);flex-shrink:0}
+
+/* Da confermare */
+.confirm{background:linear-gradient(180deg,var(--bg),var(--accent-tint) 35%,var(--accent-tint) 65%,var(--bg))}
+.confirm .h2{max-width:24ch}
+.chain{margin-top:44px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:clamp(20px,3vw,32px);border-radius:var(--r-box);background:var(--surface);border:1px solid var(--accent-line);box-shadow:var(--shadow-md)}
+.node{display:flex;align-items:center;gap:12px;font-weight:650;color:var(--ink);font-size:15.5px;line-height:1.3}
+.node > i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--sunk);color:var(--ink-2);font-size:22px;flex-shrink:0}
+.node.last > i{background:var(--accent);color:#FFFDFB}
+.state{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;font-weight:700;font-size:14.5px;white-space:nowrap}
+.state.wait{background:#FFFAEB;border:1px solid #FEDF89;color:#93370D}
+.state.ok{background:#ECFDF3;border:1px solid #ABEFC6;color:var(--success)}
+.chain > .sep{color:var(--line-strong);font-size:18px;flex-shrink:0}
+.rules{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px clamp(24px,4vw,64px)}
+.rules li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.rules li > i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--accent-line);color:var(--accent);font-size:22px}
+.rules p{padding-top:9px;color:var(--ink-2)}
+
+.ai-faq{padding-bottom:8px}
+
+/* Chi lo usa */
+.who .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,88px);align-items:start}
+.who-list{border:1px solid var(--line);border-radius:var(--r-box);background:var(--surface);overflow:hidden}
+.who-list li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;padding:24px clamp(20px,3vw,32px)}
+.who-list li + li{border-top:1px solid var(--line)}
+.who-list li > i{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;background:var(--accent-tint);color:var(--accent);font-size:24px}
+.who-list li.off > i{background:var(--sunk);color:var(--muted)}
+.who-list h3{font-size:1.12rem}
+.who-list p{margin-top:4px;color:var(--muted);font-size:15.5px}
+.who .free-band{margin-top:28px}
+
+@media (max-width:1079px){
+  .chain{flex-wrap:wrap;justify-content:flex-start}
+}
+@media (max-width:959px){
+  .ai-head-visual{max-width:620px}
+  .q-float{left:16px}
+  .link-sec .wrap,.who .wrap{grid-template-columns:1fr}
+  .scope-grid{grid-template-columns:1fr;grid-template-areas:"legge" "crea" "no"}
+}
+@media (max-width:767px){
+  .q-grid{grid-template-columns:1fr}
+  .q-col + .q-col{margin-top:0}
+  .s-legge{grid-template-columns:1fr}
+  .s-legge .shot{max-width:420px}
+  .chain{flex-direction:column;align-items:flex-start}
+  .chain > .sep{transform:rotate(90deg);margin-left:12px}
+  .rules{grid-template-columns:1fr}
+}
+@media (max-width:479px){
+  .s-no ul{grid-template-columns:1fr}
+  .q-float{left:12px;max-width:86%}
+}
+</style>
+</head>
+<body data-pagina="connessione-ai">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai" aria-current="page">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai" aria-current="page">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<!-- Testata -->
+<section class="page-head ai-head" aria-labelledby="page-title">
+  <div class="wrap">
+    <div class="ai-copy">
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Connessione AI</span>
+      </nav>
+      <p><span class="badge"><i class="ph-fill ph-sparkle" aria-hidden="true"></i>In arrivo</span></p>
+      <h1 id="page-title">Chiedi al tuo assistente AI, <em>lui guarda nel gestionale.</em></h1>
+      <p class="lead">Collegherai Claude, ChatGPT o un altro assistente a Quinte. Lavora con i tuoi permessi: legge e prepara, tu confermi.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+      </div>
+    </div>
+    <div class="page-head-visual ai-head-visual">
+      <div class="photo">
+        <img src="img/f-ufficio-caos.jpg" width="2000" height="1333" fetchpriority="high" alt="Il titolare di un'agenzia, la sera, al telefono davanti a una scrivania piena di fogli stampati, post-it e un calendario scritto a mano.">
+      </div>
+      <p class="q q-float"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quali violinisti sono liberi sabato 13 giugno?</p>
+    </div>
+  </div>
+</section>
+
+<!-- Come si collega -->
+<section class="sec link-sec" aria-labelledby="link-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="link-title">Lo colleghi una volta, poi gli scrivi come a un collega.</h2>
+      <p class="lead">Quinte si collegherà agli assistenti che supportano i connettori MCP, come Claude e ChatGPT. Per collegarlo usi lo stesso login del gestionale.</p>
+    </div>
+    <ol class="moves">
+      <li class="reveal">
+        <span class="m-ico"><i class="ph ph-plugs-connected" aria-hidden="true"></i></span>
+        <div>
+          <h3>Colleghi l'assistente</h3>
+          <p>Aggiungi Quinte tra i connettori del tuo assistente ed entri con le credenziali che usi già.</p>
+        </div>
+      </li>
+      <li class="reveal d1">
+        <span class="m-ico"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i></span>
+        <div>
+          <h3>Chiedi quello che ti serve</h3>
+          <p>Scrivi la domanda come la faresti in ufficio. L'assistente cerca la risposta nei dati di Quinte che tu puoi vedere.</p>
+        </div>
+      </li>
+      <li class="reveal d2">
+        <span class="m-ico"><i class="ph ph-user-check" aria-hidden="true"></i></span>
+        <div>
+          <h3>Controlli e confermi</h3>
+          <p>Se gli chiedi di inserire qualcosa, lo prepara e lo lascia da confermare. L'ultima parola è di una persona dello staff.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Domande -->
+<section class="sec asks-sec" aria-labelledby="asks-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="asks-title">Domande che potrai fare.</h2>
+    <p class="lead reveal d1">Quelle che oggi ti costano un giro tra calendario, fogli e telefonate.</p>
+    <div class="q-grid">
+      <div class="q-col">
+        <div class="q-item reveal">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quali violinisti sono liberi sabato 13 giugno?</p>
+          <p class="q-meta"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Guarda <b>artisti, disponibilità e calendario</b></p>
+        </div>
+        <div class="q-item reveal">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quanto devo ancora incassare questo mese?</p>
+          <p class="q-meta"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Guarda <b>le finanze, se lo chiede il titolare</b></p>
+        </div>
+        <div class="q-item reveal">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Dimmi tutti gli eventi della prossima settimana.</p>
+          <p class="q-meta"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Guarda <b>eventi e calendario</b></p>
+        </div>
+      </div>
+      <div class="q-col">
+        <div class="q-item reveal d1">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Quali eventi di maggio hanno artisti che non hanno ancora confermato?</p>
+          <p class="q-meta"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Guarda <b>gli eventi con il loro cast</b></p>
+        </div>
+        <div class="q-item reveal d1">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Dimmi gli eventi del nostro sassofonista a giugno e il suo cachet totale.</p>
+          <p class="q-meta"><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Guarda <b>eventi, cast e cachet</b></p>
+        </div>
+        <div class="q-item write reveal d1">
+          <p class="q"><i class="ph ph-chat-teardrop-text" aria-hidden="true"></i>Aggiungi una spesa di 300 euro per le bollette.</p>
+          <p class="q-meta"><i class="ph ph-note-pencil" aria-hidden="true"></i>Prepara <b>una spesa da confermare</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cosa legge e cosa fa -->
+<section class="sec" aria-labelledby="scope-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="scope-title">Legge molto, scrive poco.</h2>
+    <p class="lead reveal d1">L'assistente agisce come chi lo usa, con gli stessi permessi del suo ruolo. Non vede niente che tu non possa già vedere.</p>
+
+    <div class="scope-grid">
+      <article class="scope s-legge reveal">
+        <div>
+          <h3><i class="ph ph-magnifying-glass" aria-hidden="true"></i>Può leggere</h3>
+          <ul class="ticks">
+            <li><i class="ph ph-check-circle" aria-hidden="true"></i>Eventi, con cast, musica e contratti</li>
+            <li><i class="ph ph-check-circle" aria-hidden="true"></i>Calendario, appuntamenti ed eventi interni</li>
+            <li><i class="ph ph-check-circle" aria-hidden="true"></i>Artisti e loro disponibilità</li>
+            <li><i class="ph ph-check-circle" aria-hidden="true"></i>Clienti, location, chiese e service</li>
+            <li><i class="ph ph-lock-key" aria-hidden="true"></i>Finanze, solo per il titolare</li>
+          </ul>
+          <p class="nochat"><i class="ph ph-eye-slash" aria-hidden="true"></i>Le chat degli eventi non le legge.</p>
+        </div>
+        <figure class="shot">
+          <img src="img/app-calendario-giorno.png" width="560" height="592" loading="lazy" alt="Pannello di un giorno nel calendario di Quinte: artisti già impegnati su un matrimonio e artisti non disponibili per ferie o per un altro ingaggio. Sono i dati che l'assistente guarda per dirti chi è libero.">
+        </figure>
+      </article>
+
+      <article class="scope s-crea reveal d1">
+        <h3><i class="ph ph-note-pencil" aria-hidden="true"></i>Può creare e modificare</h3>
+        <ul class="chips" aria-label="Cosa può creare e modificare">
+          <li class="chip"><i class="ph ph-calendar-check" aria-hidden="true"></i>Appuntamenti</li>
+          <li class="chip"><i class="ph ph-calendar-blank" aria-hidden="true"></i>Eventi interni</li>
+          <li class="chip"><i class="ph ph-receipt" aria-hidden="true"></i>Spese</li>
+          <li class="chip"><i class="ph ph-clipboard-text" aria-hidden="true"></i>Eventi in bozza</li>
+          <li class="chip"><i class="ph ph-microphone-stage" aria-hidden="true"></i>Cast</li>
+          <li class="chip"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>Date</li>
+        </ul>
+        <p style="margin-top:16px;color:var(--ink-2)">Tutto resta <span class="status-pill">Da confermare</span></p>
+      </article>
+
+      <article class="scope s-no reveal d2">
+        <h3><i class="ph ph-prohibit" aria-hidden="true"></i>Non lo fa</h3>
+        <ul>
+          <li><i class="ph ph-x-circle" aria-hidden="true"></i>Cancellare dati</li>
+          <li><i class="ph ph-x-circle" aria-hidden="true"></i>Generare contratti</li>
+          <li><i class="ph ph-x-circle" aria-hidden="true"></i>Scrivere in chat</li>
+          <li><i class="ph ph-x-circle" aria-hidden="true"></i>Mandare notifiche</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Da confermare -->
+<section class="sec confirm" aria-labelledby="confirm-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="confirm-title">Niente diventa ufficiale finché una persona non lo conferma.</h2>
+    <p class="lead reveal d1">L'assistente ti risparmia il lavoro di inserimento. La decisione resta allo staff.</p>
+
+    <div class="chain reveal d2" role="list" aria-label="Cosa succede a quello che prepara l'assistente">
+      <span class="node" role="listitem"><i class="ph ph-sparkle" aria-hidden="true"></i>L'assistente prepara</span>
+      <i class="ph ph-arrow-right sep" aria-hidden="true"></i>
+      <span class="state wait" role="listitem"><i class="ph ph-hourglass-medium" aria-hidden="true"></i>Da confermare</span>
+      <i class="ph ph-arrow-right sep" aria-hidden="true"></i>
+      <span class="node" role="listitem"><i class="ph ph-user-check" aria-hidden="true"></i>Lo staff conferma</span>
+      <i class="ph ph-arrow-right sep" aria-hidden="true"></i>
+      <span class="state ok" role="listitem"><i class="ph ph-check-circle" aria-hidden="true"></i>Confermato</span>
+      <i class="ph ph-arrow-right sep" aria-hidden="true"></i>
+      <span class="node last" role="listitem"><i class="ph ph-bell-ringing" aria-hidden="true"></i>Partono le notifiche</span>
+    </div>
+
+    <ul class="rules">
+      <li class="reveal"><i class="ph ph-receipt" aria-hidden="true"></i><p>Le spese ancora da confermare non entrano nei totali delle finanze.</p></li>
+      <li class="reveal d1"><i class="ph ph-calendar-x" aria-hidden="true"></i><p>Su un evento già confermato può solo proporre un rinvio o un annullamento, e anche quello va confermato.</p></li>
+      <li class="reveal"><i class="ph ph-bell-ringing" aria-hidden="true"></i><p>Le notifiche partono solo quando lo staff conferma, non prima.</p></li>
+      <li class="reveal d1"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i><p>Ogni azione dell'assistente finisce nel registro delle modifiche, come quelle fatte a mano.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Chi lo usa -->
+<section class="sec who" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="who-title">È uno strumento per lo staff, e decide il titolare.</h2>
+      <p class="lead">La connessione è riservata a chi lavora in agenzia. Il titolare sceglie, collaboratore per collaboratore, chi può usarla.</p>
+    </div>
+    <div class="reveal d1">
+      <ul class="who-list">
+        <li>
+          <i class="ph ph-crown" aria-hidden="true"></i>
+          <div><h3>Il titolare</h3><p>Lo usa con tutti i suoi permessi, finanze comprese.</p></div>
+        </li>
+        <li>
+          <i class="ph ph-user-gear" aria-hidden="true"></i>
+          <div><h3>I collaboratori dello staff</h3><p>Solo se il titolare lo permette. Vedono quello che vedono già nel gestionale, quindi niente finanze.</p></div>
+        </li>
+        <li class="off">
+          <i class="ph ph-users" aria-hidden="true"></i>
+          <div><h3>Artisti, service e clienti</h3><p>Non lo usano. Continuano a lavorare nelle loro aree dell'app.</p></div>
+        </li>
+      </ul>
+      <p class="free-band"><i class="ph ph-gift" aria-hidden="true"></i>La connessione AI sarà inclusa in tutti i piani.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Domande frequenti -->
+<section class="sec faq ai-faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="faq-title">Domande sulla connessione AI.</h2>
+      <p style="margin-top:18px"><a class="link-arrow" href="domande.html">Tutte le domande frequenti <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="faq-list reveal d1">
+      <details>
+        <summary>Quando sarà disponibile?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>È in preparazione e non ha ancora una data di uscita. Tutto il resto di Quinte puoi provarlo già adesso nella demo.</p>
+      </details>
+      <details>
+        <summary>Quali assistenti potrò collegare?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Claude, ChatGPT e gli altri assistenti che supportano i connettori MCP.</p>
+      </details>
+      <details>
+        <summary>Costa qualcosa in più?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Da parte nostra no: sarà inclusa in tutti i piani. Ti serve un assistente che supporti i connettori MCP; le sue condizioni d'uso dipendono dal servizio che scegli.</p>
+      </details>
+      <details>
+        <summary>L'assistente può cancellare dati o scrivere agli artisti?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. Non cancella nulla, non scrive in chat, non manda notifiche e non genera contratti.</p>
+      </details>
+      <details>
+        <summary>Può vedere le finanze?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Solo se a usarlo è il titolare, come succede già nel gestionale.</p>
+      </details>
+      <details>
+        <summary>Come so cosa ha fatto?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Quello che crea resta «Da confermare» finché qualcuno dello staff non lo conferma, e ogni sua azione finisce nel registro delle modifiche.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

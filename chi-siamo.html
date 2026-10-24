@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Chi siamo · Quinte</title>
+<meta name="description" content="Quinte nasce dentro Benincasa Management, agenzia di musica e intrattenimento per eventi, per sostituire telefonate, gruppi WhatsApp e fogli Excel.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per chi-siamo.html */
+.cs-head .photo img{object-position:50% 45%}
+
+/* La storia: frase grande e confronto prima / adesso */
+.cs-story-text{font-size:clamp(1.55rem,2.9vw,2.45rem);line-height:1.24;letter-spacing:-.03em;font-weight:600;color:var(--ink);max-width:32ch;text-wrap:pretty}
+.cs-story-text strong{color:var(--accent);font-weight:700}
+.cs-pair{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cs-side{border:1px solid var(--line);border-radius:var(--r-box);background:var(--surface);overflow:hidden;display:flex;flex-direction:column}
+.cs-side.now{background:var(--accent-tint);border-color:var(--accent-line)}
+.cs-media{aspect-ratio:16/10;overflow:hidden;position:relative}
+.cs-media > img{width:100%;height:100%;object-fit:cover}
+.cs-side.before .cs-media img{object-position:40% 50%}
+.cs-side.now .cs-media{padding:22px 22px 0}
+.cs-side.now .browser{height:100%;border-bottom:0;border-radius:14px 14px 0 0;box-shadow:var(--shadow-md)}
+.cs-side.now .browser img{height:calc(100% - 28px);object-fit:cover;object-position:left top}
+.cs-side-body{padding:26px 28px 30px}
+.cs-side h3{font-size:1.3rem;display:flex;align-items:center;gap:10px}
+.cs-side h3 i{font-size:24px;color:var(--muted)}
+.cs-side.now h3 i{color:var(--accent)}
+.cs-side ul{margin-top:16px;display:grid;gap:12px}
+.cs-side li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-2)}
+.cs-side li i{font-size:19px;margin-top:3px;flex-shrink:0;color:var(--muted)}
+.cs-side.now li i{color:var(--accent)}
+
+/* Funzioni nate da richieste dell'agenzia */
+.cs-asks{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cs-asks-grid{margin-top:48px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,72px);align-items:center}
+.cs-shot{position:relative;padding:clamp(20px,3vw,36px);border-radius:24px;background:var(--accent-tint);border:1px solid var(--accent-line)}
+.cs-shot figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--surface)}
+.cs-feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 32px}
+.cs-feat i{width:44px;height:44px;border-radius:12px;background:var(--accent-tint);color:var(--accent);display:grid;place-items:center;font-size:22px}
+.cs-feat h3{margin-top:16px;font-size:1.15rem;letter-spacing:-.02em}
+.cs-feat p{margin-top:8px;color:var(--muted);font-size:15.5px;line-height:1.55}
+
+/* Principi */
+.cs-photos{margin-top:48px;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px;height:clamp(300px,36vw,480px)}
+.cs-photos figure{margin:0;border-radius:var(--r-box);overflow:hidden;box-shadow:var(--shadow-sm)}
+.cs-photos img{width:100%;height:100%;object-fit:cover}
+.cs-photos .p-service img{object-position:35% 50%}
+.cs-photos .p-artista img{object-position:45% 30%}
+.cs-rules{margin-top:clamp(40px,5vw,64px)}
+.cs-rule{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,64px);padding:32px 0;border-top:1px solid var(--line)}
+.cs-rule h3{font-size:clamp(1.3rem,2vw,1.6rem);letter-spacing:-.025em}
+.cs-rule p{color:var(--ink-2);max-width:56ch}
+
+/* Persone: segnaposto dichiarati */
+.cs-people{padding-bottom:clamp(8px,2vw,24px)}
+.cs-people-grid{margin-top:40px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px}
+.cs-people-grid .quote-slot p{font-size:clamp(1.15rem,1.8vw,1.4rem)}
+.team-slot{border:1.5px dashed var(--line-strong);border-radius:var(--r-box);padding:28px;background:var(--bg);display:flex;flex-direction:column;gap:10px;margin:0}
+.team-slot i{font-size:30px;color:var(--muted)}
+.team-slot p{font-size:1.1rem;font-weight:600;color:var(--muted)}
+.team-slot span{font-size:14.5px;color:var(--muted)}
+
+@media (max-width:959px){
+  .cs-asks-grid{grid-template-columns:1fr}
+  .cs-shot{max-width:520px}
+}
+@media (max-width:767px){
+  .cs-pair{grid-template-columns:1fr}
+  .cs-photos{grid-template-columns:1fr;height:auto}
+  .cs-photos .p-service{aspect-ratio:3/2}
+  .cs-photos .p-artista{aspect-ratio:4/3}
+  .cs-rule{grid-template-columns:1fr;padding:26px 0}
+  .cs-people-grid{grid-template-columns:1fr}
+}
+@media (max-width:559px){
+  .cs-feats{grid-template-columns:1fr;gap:28px}
+  .cs-side-body{padding:22px 20px 24px}
+  .cs-side.now .cs-media{padding:16px 16px 0}
+}
+</style>
+</head>
+<body data-pagina="chi-siamo">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo" aria-current="page">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo" aria-current="page">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<section class="page-head cs-head" aria-labelledby="cs-title">
+  <div class="wrap">
+    <div class="hero-copy">
+      <nav class="crumbs" aria-label="Percorso">
+        <a href="index.html">Home</a>
+        <i class="ph ph-caret-right" aria-hidden="true"></i>
+        <span aria-current="page">Chi siamo</span>
+      </nav>
+      <h1 id="cs-title">Nato in un'agenzia, <em>non a tavolino.</em></h1>
+      <p class="lead">Quinte nasce dentro Benincasa Management, agenzia di musica e intrattenimento per eventi, che lo usa ogni giorno per gestire artisti, service ed eventi.</p>
+    </div>
+    <div class="page-head-visual">
+      <div class="photo">
+        <img src="img/f-quartetto-chiesa.jpg" width="2000" height="1333" fetchpriority="high" alt="Un quartetto d'archi suona durante una cerimonia in una chiesa barocca, con gli invitati seduti alle spalle.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs-story" aria-labelledby="story-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="eyebrow" id="story-title">La storia</h2>
+      <p class="cs-story-text">Prima c'erano le telefonate per confermare il cast, un gruppo WhatsApp per ogni evento e i fogli Excel per acconti e cachet. <strong>Quinte è nato per prendere il loro posto.</strong></p>
+    </div>
+    <div class="cs-pair">
+      <article class="cs-side before reveal">
+        <div class="cs-media">
+          <img src="img/f-ufficio-caos.jpg" width="2000" height="1333" loading="lazy" alt="Il titolare di un'agenzia, la sera, al telefono davanti a una scrivania piena di fogli stampati e post-it.">
+        </div>
+        <div class="cs-side-body">
+          <h3><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>Prima</h3>
+          <ul>
+            <li><i class="ph ph-phone-call" aria-hidden="true"></i>Il cast si confermava al telefono, un artista alla volta.</li>
+            <li><i class="ph ph-chats-circle" aria-hidden="true"></i>Le informazioni di un evento erano sparse tra chat diverse.</li>
+            <li><i class="ph ph-table" aria-hidden="true"></i>Acconti e cachet stavano in un foglio che aggiornava una sola persona.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="cs-side now reveal d1">
+        <div class="cs-media">
+          <div class="browser">
+            <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+            <img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="La dashboard dello staff in Quinte: eventi confermati, utile stimato, acconti incassati, artisti nel roster e prossimi eventi.">
+          </div>
+        </div>
+        <div class="cs-side-body">
+          <h3><i class="ph ph-check-circle" aria-hidden="true"></i>Adesso</h3>
+          <ul>
+            <li><i class="ph ph-device-mobile" aria-hidden="true"></i>L'artista riceve l'incarico sul telefono e accetta o rifiuta.</li>
+            <li><i class="ph ph-chat-centered-text" aria-hidden="true"></i>Staff e cast si scrivono nella chat dell'evento.</li>
+            <li><i class="ph ph-folder-simple" aria-hidden="true"></i>Acconti, spese e contratti stanno nella scheda dell'evento.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs-asks" aria-labelledby="asks-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="asks-title">Molte funzioni sono nate da una richiesta dell'agenzia.</h2>
+      <p class="lead">Quando in agenzia serviva qualcosa per lavorare meglio, è finito nel gestionale. Qualche esempio.</p>
+    </div>
+    <div class="cs-asks-grid">
+      <div class="cs-shot reveal">
+        <figure>
+          <img src="img/app-calendario-giorno.png" width="560" height="592" loading="lazy" alt="Il pannello di un giorno del calendario: gli artisti già impegnati su un matrimonio e gli artisti non disponibili, uno in ferie e uno con un altro ingaggio.">
+        </figure>
+      </div>
+      <div class="cs-feats reveal d1">
+        <div class="cs-feat">
+          <i class="ph ph-calendar-x" aria-hidden="true"></i>
+          <h3>Le date bloccate degli artisti</h3>
+          <p>L'artista segna i giorni in cui non c'è. Lo staff li vede mentre compone il cast e sa subito chi non chiamare.</p>
+        </div>
+        <div class="cs-feat">
+          <i class="ph ph-music-notes" aria-hidden="true"></i>
+          <h3>I momenti della musica scelti dal cliente</h3>
+          <p>Il cliente sceglie i brani nei momenti che decidi tu, fino alla data che fissi. Poi la scelta si chiude da sola.</p>
+        </div>
+        <div class="cs-feat">
+          <i class="ph ph-calendar-dots" aria-hidden="true"></i>
+          <h3>Il calendario con le assenze dello staff</h3>
+          <p>Eventi, appuntamenti, eventi interni e assenze dello staff nella stessa vista del mese.</p>
+        </div>
+        <div class="cs-feat">
+          <i class="ph ph-receipt" aria-hidden="true"></i>
+          <h3>Le spese dell'agenzia</h3>
+          <p>Non solo le spese dei singoli eventi: anche quelle dell'agenzia, con il riepilogo del mese e le spese per categoria.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs-principles" aria-labelledby="rules-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="rules-title">I principi da cui partiamo.</h2>
+    <div class="cs-photos reveal d1">
+      <figure class="p-service"><img src="img/f-tecnico-service.jpg" width="2000" height="1333" loading="lazy" alt="Un tecnico del service prepara il mixer e le luci in una sala ricevimenti ancora vuota."></figure>
+      <figure class="p-artista"><img src="img/f-cantante-telefono.jpg" width="1500" height="2000" loading="lazy" alt="Una cantante in abito nero, nel camerino, sorride guardando il telefono."></figure>
+    </div>
+    <div class="cs-rules">
+      <div class="cs-rule reveal">
+        <h3>Ogni agenzia ha la sua installazione.</h3>
+        <p>I dati della tua agenzia non stanno insieme a quelli di altre agenzie. Ogni installazione è separata, sul nostro server dedicato o sul tuo.</p>
+      </div>
+      <div class="cs-rule reveal">
+        <h3>Artisti e service lavorano dentro l'app.</h3>
+        <p>Ricevono gli incarichi, leggono la scheda dell'evento e scrivono nella chat dal telefono. Ognuno vede solo quello che gli serve: il service non vede i soldi, gli artisti non vedono i cachet dei colleghi. Accedono gratis e senza limiti in tutti i piani.</p>
+      </div>
+      <div class="cs-rule reveal">
+        <h3>Si costruisce sul lavoro vero.</h3>
+        <p>Le funzioni nuove partono da casi concreti di un'agenzia al lavoro, come quelli che hai appena letto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cs-people" aria-labelledby="people-title" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="people-title">Le persone dietro Quinte.</h2>
+    </div>
+    <div class="cs-people-grid">
+      <figure class="quote-slot reveal" style="margin:0">
+        <i class="ph-fill ph-quotes" aria-hidden="true"></i>
+        <p>[Citazione di Rosa Benincasa da raccogliere]</p>
+        <span>Rosa Benincasa, Benincasa Management</span>
+      </figure>
+      <div class="team-slot reveal d1">
+        <i class="ph ph-users-three" aria-hidden="true"></i>
+        <p>[Il team: da completare]</p>
+        <span>Nomi, ruoli e foto delle persone che seguono Quinte.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

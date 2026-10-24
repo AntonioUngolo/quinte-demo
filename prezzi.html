@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Prezzi · Quinte</title>
+<meta name="description" content="Prezzi pubblici di Quinte: setup una tantum più licenza annuale, tre piani (Small, Medium, Large), hosting facoltativo. Artisti, service e clienti gratis. IVA esclusa.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo pagina Prezzi */
+.nowrap{white-space:nowrap}
+
+/* Testata: la formula del prezzo */
+.formula{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-box);padding:clamp(20px,2.6vw,32px);box-shadow:var(--shadow-md);display:grid;gap:0}
+.f-row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:start}
+.f-ico{width:48px;height:48px;border-radius:13px;background:var(--accent-tint);border:1px solid var(--accent-line);color:var(--accent);display:grid;place-items:center;font-size:24px}
+.f-row h2{font-size:1.15rem;letter-spacing:-.02em;padding-top:2px}
+.f-row h2 small{font-size:13.5px;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:6px}
+.f-row p{margin-top:4px;color:var(--muted);font-size:15.5px;line-height:1.5}
+.f-plus{display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:center;margin:10px 0}
+.f-plus span{width:28px;height:28px;margin-left:10px;border-radius:50%;background:var(--sunk);border:1px solid var(--line);display:grid;place-items:center;color:var(--muted);font-size:15px}
+.f-plus hr{border:0;border-top:1px dashed var(--line-strong);margin:0}
+.f-row.opt .f-ico{background:var(--sunk);border-color:var(--line);color:var(--ink-2)}
+
+/* Piani */
+.piani .plans{margin-top:44px}
+.plan .btn-primary.full{margin-top:18px}
+
+/* Confronto voce per voce */
+.cmp-sec{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cmp-wrap{margin-top:44px}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:15.5px}
+.cmp col.c-label{width:34%}
+.cmp thead th{position:sticky;top:var(--nav-h);z-index:2;background:var(--surface);text-align:left;padding:18px 18px 16px;vertical-align:bottom;border-bottom:1px solid var(--line-strong)}
+.cmp thead th a{text-decoration:none;font-size:1.2rem;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+.cmp thead th a:hover{color:var(--accent)}
+.cmp thead th span{display:block;font-size:13.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.cmp thead th.is-med{background:var(--accent-tint);border-radius:14px 14px 0 0;border-bottom-color:var(--accent-line)}
+.cmp thead th.is-med em{display:inline-block;font-style:normal;margin-left:8px;padding:2px 9px;border-radius:999px;background:var(--accent);color:#FFFDFB;font-size:12px;font-weight:700;vertical-align:3px}
+.cmp tbody th,.cmp tbody td{padding:13px 18px;text-align:left;vertical-align:top}
+.cmp tbody th{font-weight:550;color:var(--ink-2)}
+.cmp tbody th small{display:block;font-weight:450;color:var(--muted);font-size:13.5px;margin-top:2px}
+.cmp tbody td{color:var(--ink);font-weight:600}
+.cmp tbody td.is-med{background:var(--accent-tint)}
+.cmp tr.grp th,.cmp tr.grp td{padding-top:34px;padding-bottom:8px}
+.cmp tr.grp th{font-size:1.05rem;font-weight:700;color:var(--ink);letter-spacing:-.015em}
+.cmp tr.grp th i{color:var(--accent);font-size:19px;vertical-align:-3px;margin-right:8px}
+.cmp tbody:first-of-type tr.grp th,.cmp tbody:first-of-type tr.grp td{padding-top:20px}
+.cmp tbody:last-of-type tr:last-child td.is-med{border-radius:0 0 14px 14px}
+.cmp .yes{color:var(--accent);font-size:20px}
+.cmp .no{color:var(--line-strong);font-size:20px}
+.cmp .soon-txt{font-weight:500;color:var(--muted);font-size:14px;margin-left:4px}
+.cmp td .num{font-variant-numeric:tabular-nums}
+.cmp-note{margin-top:22px;color:var(--muted);font-size:14.5px}
+@media (max-width:759px){
+  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block}
+  .cmp colgroup,.cmp thead{display:none}
+  .cmp tbody{margin-top:8px}
+  .cmp tr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:12px 0}
+  .cmp tbody th{grid-column:1/-1;padding:0 0 4px}
+  .cmp tbody td{padding:8px 10px;border-radius:10px;background:var(--bg);font-size:14.5px;overflow-wrap:anywhere}
+  .cmp tbody td.is-med{background:var(--accent-tint)}
+  .cmp tbody td::before{content:attr(data-label);display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:2px}
+  .cmp tbody:last-of-type tr:last-child td.is-med{border-radius:10px}
+  .cmp tr.grp{padding:26px 0 2px}
+  .cmp tr.grp td{display:none}
+  .cmp tr.grp th,.cmp tbody:first-of-type tr.grp th{padding:0}
+}
+
+/* Setup */
+.setup-sec .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(36px,5vw,80px);align-items:center}
+.setup-sec .setup-list{margin-top:28px}
+.setup-prices{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px}
+.setup-prices li{padding:8px 12px;border-radius:10px;background:var(--sunk);border:1px solid var(--line);font-size:14.5px;color:var(--ink-2)}
+.setup-prices b{color:var(--ink);font-weight:700}
+.setup-frame{position:relative;isolation:isolate;padding:0 0 clamp(20px,3vw,32px) clamp(20px,3vw,32px)}
+.setup-frame::before{content:"";position:absolute;inset:14% 0 0 0;border-radius:24px;background:var(--accent-tint);border:1px solid var(--accent-line);z-index:-1}
+.setup-frame .browser{margin-right:clamp(20px,3vw,32px)}
+.setup-shot .browser img{aspect-ratio:1440/900;object-fit:cover;object-position:top}
+.setup-cap{margin-top:16px;font-size:14.5px;color:var(--muted);max-width:52ch}
+@media (max-width:899px){.setup-sec .wrap{grid-template-columns:1fr}}
+
+/* Hosting */
+.host-sec{padding-top:0}
+.host-grid{margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.host{border:1px solid var(--line);border-radius:var(--r-box);padding:clamp(22px,3vw,34px);background:var(--surface);display:flex;flex-direction:column;gap:12px}
+.host > i{font-size:30px;color:var(--accent)}
+.host h3{font-size:1.3rem}
+.host p{color:var(--ink-2)}
+.host-prices{margin-top:6px;display:grid;gap:8px}
+.host-prices li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:10px 14px;border-radius:10px;background:var(--sunk);font-size:15px;color:var(--ink-2)}
+.host-prices b{color:var(--ink);font-weight:700;white-space:nowrap}
+.host.own{background:var(--bg);border-style:dashed;border-color:var(--line-strong)}
+.host-sec .free-band{margin-top:16px}
+@media (max-width:759px){.host-grid{grid-template-columns:1fr}}
+
+/* Fondatori */
+.found-sec{padding-top:0}
+.found-sec .founders{margin-top:0;padding:clamp(24px,3.4vw,40px)}
+.found-sec .founders-txt h2{font-size:clamp(1.4rem,2.2vw,1.8rem);letter-spacing:-.03em}
+.found-sec .founders-txt p{margin-top:8px;font-size:1.05rem}
+.found-sec .founders-txt small{display:block;margin-top:10px;font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body data-pagina="prezzi">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi" aria-current="page">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi" aria-current="page">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<!-- Testata -->
+<section class="page-head" aria-labelledby="ph-title">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Prezzi</span>
+      </nav>
+      <h1 id="ph-title">Un setup per partire, <em>poi una licenza all'anno.</em></h1>
+      <p class="lead">Ogni agenzia ha la sua installazione dedicata e i dati restano solo suoi. Prezzi pubblici, IVA esclusa.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="page-head-visual">
+      <div class="formula">
+        <div class="f-row">
+          <span class="f-ico"><i class="ph ph-wrench" aria-hidden="true"></i></span>
+          <div>
+            <h2>Setup <small>una tantum</small></h2>
+            <p>Installazione, import dei tuoi dati, logo, modelli di contratto e formazione dello staff.</p>
+          </div>
+        </div>
+        <div class="f-plus" aria-hidden="true"><span><i class="ph ph-plus"></i></span><hr></div>
+        <div class="f-row">
+          <span class="f-ico"><i class="ph ph-arrows-clockwise" aria-hidden="true"></i></span>
+          <div>
+            <h2>Licenza <small>ogni anno</small></h2>
+            <p>Comprende aggiornamenti e assistenza. Si paga in anticipo, un anno alla volta.</p>
+          </div>
+        </div>
+        <div class="f-plus" aria-hidden="true"><span><i class="ph ph-plus"></i></span><hr></div>
+        <div class="f-row opt">
+          <span class="f-ico"><i class="ph ph-hard-drives" aria-hidden="true"></i></span>
+          <div>
+            <h2>Hosting <small>se lo vuoi</small></h2>
+            <p>Lo gestiamo noi con un canone mensile, oppure Quinte gira sul tuo server.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tre piani -->
+<section class="sec piani" id="piani" aria-labelledby="piani-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="piani-title">Tre piani, la stessa app.</h2>
+    <p class="lead reveal d1">Cambiano i limiti e i moduli. Artisti, service e clienti accedono gratis in tutti e tre.</p>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>Small</h3>
+        <p class="plan-for">Band e piccole agenzie</p>
+        <div class="price">
+          <p class="price-main num">€ 690 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 1.200 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b class="num">2</b><span>staff (admin)</span></div>
+          <div class="limit"><b class="num">fino a 25</b><span>artisti nel roster</span></div>
+          <div class="limit"><b class="num">3</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Eventi, cast e conferme</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Chat, calendario, notifiche</li>
+          <li class="soon"><i class="ph ph-sparkle" aria-hidden="true"></i>Connessione AI (in arrivo)</li>
+        </ul>
+        <p class="hosting">Hosting gestito da noi, facoltativo: <b class="num nowrap">+ € 30/mese</b></p>
+        <a class="btn btn-ghost" href="piano-small.html">Scopri Small <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+
+      <article class="plan featured reveal d1">
+        <span class="plan-tag">Consigliato</span>
+        <h3>Medium</h3>
+        <p class="plan-for">Agenzie strutturate</p>
+        <div class="price">
+          <p class="price-main num">€ 1.790 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 2.500 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b class="num">5</b><span>staff (admin)</span></div>
+          <div class="limit"><b class="num">fino a 100</b><span>artisti nel roster</span></div>
+          <div class="limit"><b class="num">15</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Tutto Small</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Finanze e spese</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Contratti</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>CRM appuntamenti</li>
+        </ul>
+        <p class="hosting">Hosting gestito da noi, facoltativo: <b class="num nowrap">+ € 50/mese</b></p>
+        <a class="btn btn-primary" href="piano-medium.html">Scopri Medium <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+
+      <article class="plan reveal d2">
+        <h3>Large</h3>
+        <p class="plan-for">Più sedi o grandi volumi</p>
+        <div class="price">
+          <p class="price-main num">da € 3.500 <small>/ anno</small></p>
+          <p class="price-label">Licenza annuale</p>
+          <p class="price-second num">da € 5.000 <small>setup una tantum</small></p>
+        </div>
+        <div class="limits">
+          <div class="limit"><b>Illimitati</b><span>staff (admin)</span></div>
+          <div class="limit"><b>Illimitati</b><span>artisti nel roster</span></div>
+          <div class="limit"><b>Illimitati</b><span>service</span></div>
+        </div>
+        <ul class="modules">
+          <li><i class="ph ph-check" aria-hidden="true"></i>Tutto Medium</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Più sedi o team</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Personalizzazioni</li>
+          <li><i class="ph ph-check" aria-hidden="true"></i>Assistenza prioritaria</li>
+        </ul>
+        <p class="hosting">Hosting: <b>di norma sul tuo server</b></p>
+        <a class="btn btn-ghost" href="piano-large.html">Scopri Large <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Confronto -->
+<section class="sec cmp-sec" id="confronto" aria-labelledby="cmp-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="cmp-title">Il confronto, voce per voce.</h2>
+    <p class="lead reveal d1">Le stesse informazioni delle schede, una accanto all'altra.</p>
+
+    <div class="cmp-wrap reveal">
+      <table class="cmp">
+        <caption class="sr-only">Confronto tra i piani Small, Medium e Large: limiti, moduli e costi</caption>
+        <colgroup><col class="c-label"><col><col><col></colgroup>
+        <thead>
+          <tr>
+            <td></td>
+            <th scope="col"><a href="piano-small.html">Small</a><span>Band e piccole agenzie</span></th>
+            <th scope="col" class="is-med"><a href="piano-medium.html">Medium</a><em>Consigliato</em><span>Agenzie strutturate</span></th>
+            <th scope="col"><a href="piano-large.html">Large</a><span>Più sedi o grandi volumi</span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="grp"><th scope="rowgroup"><i class="ph ph-users-three" aria-hidden="true"></i>Persone e limiti</th><td aria-hidden="true"></td><td class="is-med" aria-hidden="true"></td><td aria-hidden="true"></td></tr>
+          <tr><th scope="row">Staff (admin)<small>Chi lavora in agenzia</small></th><td data-label="Small" class="num">2</td><td data-label="Medium" class="is-med num">5</td><td data-label="Large">illimitati</td></tr>
+          <tr><th scope="row">Artisti nel roster</th><td data-label="Small" class="num">fino a 25</td><td data-label="Medium" class="is-med num">fino a 100</td><td data-label="Large">illimitati</td></tr>
+          <tr><th scope="row">Service</th><td data-label="Small" class="num">3</td><td data-label="Medium" class="is-med num">15</td><td data-label="Large">illimitati</td></tr>
+          <tr><th scope="row">Accesso di artisti, service e clienti</th><td data-label="Small">gratis</td><td data-label="Medium" class="is-med">gratis</td><td data-label="Large">gratis</td></tr>
+        </tbody>
+
+        <tbody>
+          <tr class="grp"><th scope="rowgroup"><i class="ph ph-squares-four" aria-hidden="true"></i>Moduli</th><td aria-hidden="true"></td><td class="is-med" aria-hidden="true"></td><td aria-hidden="true"></td></tr>
+          <tr><th scope="row">Eventi, cast e conferme</th><td data-label="Small"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Chat, calendario, notifiche</th><td data-label="Small"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Connessione AI<small>In arrivo</small></th><td data-label="Small"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Inclusa, in arrivo</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Inclusa, in arrivo</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Inclusa, in arrivo</span></td></tr>
+          <tr><th scope="row">Finanze e spese<small>Le vede solo il titolare</small></th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Contratti</th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">CRM appuntamenti</th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Più sedi o team</th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Personalizzazioni</th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+          <tr><th scope="row">Assistenza prioritaria</th><td data-label="Small"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Medium" class="is-med"><i class="ph ph-minus no" aria-hidden="true"></i><span class="sr-only">Non incluso</span></td><td data-label="Large"><i class="ph ph-check yes" aria-hidden="true"></i><span class="sr-only">Incluso</span></td></tr>
+        </tbody>
+
+        <tbody>
+          <tr class="grp"><th scope="rowgroup"><i class="ph ph-receipt" aria-hidden="true"></i>Costi, IVA esclusa</th><td aria-hidden="true"></td><td class="is-med" aria-hidden="true"></td><td aria-hidden="true"></td></tr>
+          <tr><th scope="row">Licenza annuale<small>Aggiornamenti e assistenza</small></th><td data-label="Small" class="num nowrap">€ 690</td><td data-label="Medium" class="is-med num nowrap">€ 1.790</td><td data-label="Large" class="num nowrap">da € 3.500</td></tr>
+          <tr><th scope="row">Setup una tantum</th><td data-label="Small" class="num nowrap">da € 1.200</td><td data-label="Medium" class="is-med num nowrap">da € 2.500</td><td data-label="Large" class="num nowrap">da € 5.000</td></tr>
+          <tr><th scope="row">Hosting gestito da noi<small>Facoltativo</small></th><td data-label="Small" class="num nowrap">+ € 30/mese</td><td data-label="Medium" class="is-med num nowrap">+ € 50/mese</td><td data-label="Large">di norma sul tuo server</td></tr>
+        </tbody>
+      </table>
+      <p class="cmp-note">Tutti i prezzi sono IVA esclusa.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Setup -->
+<section class="sec setup-sec" id="setup" aria-labelledby="setup-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="setup-title">Cosa comprende il setup.</h2>
+      <p class="lead">Si paga una volta, all'inizio. Quando è finito, la tua agenzia è dentro Quinte con i suoi dati, il suo logo e i suoi contratti.</p>
+      <ul class="setup-list">
+        <li><i class="ph ph-hard-drives" aria-hidden="true"></i>Installazione</li>
+        <li><i class="ph ph-globe-simple" aria-hidden="true"></i>Dominio e HTTPS</li>
+        <li><i class="ph ph-bell-ringing" aria-hidden="true"></i>Notifiche push</li>
+        <li><i class="ph ph-envelope-simple" aria-hidden="true"></i>Invio email</li>
+        <li><i class="ph ph-upload-simple" aria-hidden="true"></i>Import dei tuoi dati</li>
+        <li><i class="ph ph-palette" aria-hidden="true"></i>Logo e colori</li>
+        <li><i class="ph ph-file-text" aria-hidden="true"></i>Modelli di contratto</li>
+        <li><i class="ph ph-chalkboard-teacher" aria-hidden="true"></i>Formazione dello staff (2-4 ore)</li>
+      </ul>
+      <ul class="setup-prices" aria-label="Prezzo del setup per piano">
+        <li>Small <b class="num nowrap">da € 1.200</b></li>
+        <li>Medium <b class="num nowrap">da € 2.500</b></li>
+        <li>Large <b class="num nowrap">da € 5.000</b></li>
+      </ul>
+    </div>
+    <figure class="setup-shot reveal d1" style="margin:0">
+      <div class="setup-frame"><div class="browser">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="La dashboard dello staff in Quinte, con il nome dell'agenzia nella barra laterale, i numeri dell'anno, i prossimi eventi e gli appuntamenti.">
+      </div></div>
+      <figcaption class="setup-cap">Dopo il setup lo staff entra e trova artisti, clienti e location già importati.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Hosting -->
+<section class="sec host-sec" id="hosting" aria-labelledby="host-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="host-title">Dove gira la tua installazione.</h2>
+    <p class="lead reveal d1">In tutti i piani ogni agenzia ha la sua installazione separata. Scegli tu dove tenerla.</p>
+    <div class="host-grid">
+      <article class="host reveal">
+        <i class="ph ph-cloud-check" aria-hidden="true"></i>
+        <h3>La gestiamo noi</h3>
+        <p>Teniamo noi il server dedicato alla tua agenzia. È facoltativo e si paga a mese.</p>
+        <ul class="host-prices">
+          <li>Small <b class="num">+ € 30/mese</b></li>
+          <li>Medium <b class="num">+ € 50/mese</b></li>
+        </ul>
+      </article>
+      <article class="host own reveal d1">
+        <i class="ph ph-buildings" aria-hidden="true"></i>
+        <h3>Sul tuo server</h3>
+        <p>Installiamo Quinte su un server della tua agenzia, senza canone di hosting da pagare a noi. Per Large è la strada di norma.</p>
+        <p style="color:var(--muted);font-size:15px">Cosa deve avere il server lo vediamo insieme prima del setup.</p>
+      </article>
+    </div>
+    <p class="free-band reveal"><i class="ph ph-gift" aria-hidden="true"></i>In tutti i piani: artisti, service e clienti gratis e senza limiti, e la connessione AI quando arriva.</p>
+  </div>
+</section>
+
+<!-- Fondatori -->
+<section class="sec found-sec" aria-labelledby="found-title">
+  <div class="wrap">
+    <div class="founders reveal">
+      <div class="founders-txt">
+        <i class="ph ph-handshake" aria-hidden="true"></i>
+        <div>
+          <h2 id="found-title">Offerta Fondatori</h2>
+          <p>Prezzo bloccato per le prime 5 agenzie, in cambio di un parere sincero ogni mese.</p>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="demo.html">Prova la demo gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- Domande sui costi -->
+<section class="sec faq" id="domande-costi" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="faq-title">Domande sui costi</h2>
+      <p style="margin-top:18px"><a class="link-arrow" href="domande.html">Tutte le domande <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Cosa comprende la licenza annuale?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Gli aggiornamenti di Quinte e l'assistenza per un anno. Si paga in anticipo, all'inizio di ogni anno di licenza.</p>
+      </details>
+      <details>
+        <summary>Artisti, service e clienti si pagano a parte?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. Accedono gratis e senza limiti in tutti i piani. I limiti dei piani riguardano lo staff dell'agenzia, gli artisti nel roster e i service in anagrafica.</p>
+      </details>
+      <details>
+        <summary>L'hosting è obbligatorio?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No, è facoltativo. Se lo gestiamo noi costa + € 30/mese con Small e + € 50/mese con Medium. Altrimenti Quinte gira sul tuo server, che per Large è la scelta di norma.</p>
+      </details>
+      <details>
+        <summary>Perché il setup ha un prezzo «da»?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Perché ogni agenzia parte da una situazione diversa: quanti dati importare, quali modelli di contratto preparare, quante persone formare. Il prezzo esatto lo concordiamo prima di cominciare.</p>
+      </details>
+      <details>
+        <summary>La demo costa qualcosa? Serve la carta?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. La demo è gratuita e non chiediamo la carta: ti registri, ricevi l'accesso a una demo con dati di esempio e la provi per 14 giorni con il tuo staff.</p>
+      </details>
+      <details>
+        <summary>E se l'agenzia cresce?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Se superi i limiti del tuo piano, ne parliamo e passi al piano adatto.</p>
+      </details>
+      <details>
+        <summary>I prezzi comprendono l'IVA?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No, tutti i prezzi sono IVA esclusa.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

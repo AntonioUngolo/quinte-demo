@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Piano Large · Quinte</title>
+<meta name="description" content="Il piano Large di Quinte per agenzie con più sedi o grandi volumi: staff, artisti e service illimitati, personalizzazioni e assistenza prioritaria. Licenza da € 3.500 l'anno, setup da € 5.000, IVA esclusa.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Pagine dei piani (blocco uguale in piano-small, piano-medium, piano-large) */
+.nowrap{white-space:nowrap}
+.plan-switch{margin-top:18px;display:inline-flex;gap:4px;padding:5px;border-radius:14px;background:var(--sunk);border:1px solid var(--line);max-width:100%}
+.plan-switch a{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:10px;text-decoration:none;font-size:15px;font-weight:650;color:var(--muted);white-space:nowrap;transition:background-color .2s,color .2s}
+.plan-switch a:hover{color:var(--ink)}
+.plan-switch a[aria-current="page"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow-sm)}
+.plan-switch a span{font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--accent-tint);color:var(--accent-hover);border:1px solid var(--accent-line)}
+@media (max-width:399px){.plan-switch a{padding:9px 11px}.plan-switch a span{display:none}}
+.page-head-visual .photo img{object-position:var(--pos,50% 50%)}
+
+/* Per chi e */
+.chi .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(36px,5vw,80px);align-items:center}
+.chi-visual{position:relative}
+.chi-photo{margin:0;border-radius:var(--r-box);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--shadow-md)}
+.chi-photo img{width:100%;height:100%;object-fit:cover;object-position:38% 50%}
+.chi-panel{margin:0;padding:clamp(20px,3vw,36px);border-radius:24px;background:var(--accent-tint);border:1px solid var(--accent-line)}
+.chi-panel img{border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--surface)}
+.chi-panel .browser img{border:0;border-radius:0;box-shadow:none}
+.chi-cap{margin-top:14px;font-size:14.5px;color:var(--ink-2)}
+.chi-list{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.chi-list li{display:flex;flex-direction:column;gap:10px;padding:18px;border-radius:14px;background:var(--surface);border:1px solid var(--line);color:var(--ink-2);font-size:15.5px;line-height:1.5}
+.chi-list i{width:38px;height:38px;border-radius:11px;background:var(--sunk);display:grid;place-items:center;font-size:20px;color:var(--ink-2)}
+.chi-close{margin-top:24px;display:flex;gap:12px;align-items:flex-start;font-weight:600;color:var(--ink);max-width:60ch}
+.chi-close i{color:var(--accent);font-size:1.4em;flex-shrink:0;margin-top:1px}
+@media (max-width:899px){.chi .wrap{grid-template-columns:1fr}.chi-visual{order:2}.chi-photo{aspect-ratio:3/2}}
+@media (max-width:519px){.chi-list{grid-template-columns:1fr}}
+
+/* Quanto costa */
+.costo{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.costo-box{margin-top:44px;position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);border:1px solid var(--line-strong);border-radius:var(--r-box);background:var(--bg);overflow:hidden}
+.costo-box.featured{border:2px solid var(--accent);box-shadow:var(--shadow-lg)}
+.costo-main{padding:clamp(24px,3.6vw,48px)}
+.costo-main .tag{display:inline-block;margin-bottom:14px;background:var(--accent);color:#FFFDFB;font-size:13.5px;font-weight:700;padding:5px 12px;border-radius:999px}
+.costo-label{font-size:15px;font-weight:600;color:var(--muted)}
+.costo-big{margin-top:6px;font-size:clamp(2.6rem,5vw,3.8rem);font-weight:700;letter-spacing:-.05em;line-height:1;white-space:nowrap}
+.costo-big small{font-size:.38em;font-weight:600;letter-spacing:0;color:var(--muted)}
+.costo-rows{margin-top:28px;display:grid;gap:10px;max-width:520px}
+.costo-rows li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.costo-rows span{color:var(--ink-2);font-size:15.5px}
+.costo-rows span small{display:block;font-size:13.5px;color:var(--muted)}
+.costo-rows b{font-size:1.15rem;font-weight:700;white-space:nowrap;letter-spacing:-.02em}
+.costo-main .vat{margin-top:14px}
+.costo-main .btn{margin-top:26px}
+.costo-side{padding:clamp(24px,3.6vw,48px);background:var(--sunk);border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:12px}
+.costo-box.featured .costo-side{background:var(--accent-tint);border-left-color:var(--accent-line)}
+.costo-side h3{font-size:1.1rem}
+.lim{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line-strong)}
+.costo-box.featured .lim{border-bottom-color:var(--accent-line)}
+.lim span{color:var(--ink-2)}
+.lim b{font-size:clamp(1.4rem,2.2vw,1.8rem);letter-spacing:-.035em;white-space:nowrap}
+.lim-free{padding-top:10px;display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink-2)}
+.lim-free i{color:var(--accent);font-size:20px;flex-shrink:0;margin-top:1px}
+.grow{margin-top:16px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:18px;align-items:center;padding:22px 26px;border-radius:var(--r-box);border:1.5px dashed var(--line-strong);background:var(--surface)}
+.grow > i{font-size:28px;color:var(--accent)}
+.grow h3{font-size:1.1rem}
+.grow p{margin-top:4px;color:var(--ink-2)}
+@media (max-width:859px){
+  .costo-box{grid-template-columns:1fr}
+  .costo-side{border-left:0;border-top:1px solid var(--line)}
+  .costo-box.featured .costo-side{border-top-color:var(--accent-line)}
+  .grow{grid-template-columns:auto minmax(0,1fr);align-items:start}
+  .grow .link-arrow{grid-column:2}
+}
+
+/* Moduli */
+.mod-grid{margin-top:44px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;align-items:start}
+.mod-col{border-radius:var(--r-box);padding:clamp(22px,3vw,34px);border:1px solid var(--line);background:var(--surface)}
+.mod-col h3{font-size:1.15rem;display:flex;align-items:center;gap:10px}
+.mod-col h3 i{font-size:22px;color:var(--accent)}
+.mod-list{margin-top:20px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 28px}
+.mod-list li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:12px;align-items:start}
+.mod-list li > i{font-size:21px;color:var(--accent);margin-top:2px}
+.mod-list b{display:block;color:var(--ink);font-weight:650}
+.mod-list p{margin-top:3px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.mod-list .soon b::after{content:"In arrivo";margin-left:8px;font-size:11.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--accent-tint);color:var(--accent-hover);border:1px solid var(--accent-line);vertical-align:2px}
+.mod-grid > .mod-col + .mod-col{position:sticky;top:calc(var(--nav-h) + 24px)}
+.mod-col.out{background:var(--bg);border-style:dashed;border-color:var(--line-strong)}
+.mod-col.out h3 i{color:var(--muted)}
+.mod-col.out .mod-list,.mod-col.plus .mod-list{grid-template-columns:1fr}
+.mod-col.out .mod-list li > i{color:var(--line-strong)}
+.mod-col.out .mod-list b{color:var(--ink-2)}
+.mod-col.plus{background:var(--accent-tint);border-color:var(--accent-line)}
+.mod-to{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:650;color:var(--accent);text-decoration:none}
+.mod-list li.out-grp{display:block}
+.out-names{margin-top:10px;display:grid;gap:8px}
+.out-names li{display:flex;gap:10px;align-items:center;color:var(--ink-2);font-size:15.5px}
+.out-names i{font-size:19px;color:var(--muted)}
+.mod-to:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:959px){.mod-grid{grid-template-columns:1fr}.mod-grid > .mod-col + .mod-col{position:static}}
+@media (max-width:559px){.mod-list{grid-template-columns:1fr}}
+
+/* Setup e hosting */
+.sh{padding-top:0}
+.sh .price-foot{margin-top:0}
+.sh h2.h2{margin-bottom:36px}
+.sh .setup-box h3 b,.sh .all-box h3 b{white-space:nowrap}
+.host-txt{margin-top:16px;display:grid;gap:12px;color:var(--ink-2);font-size:15.5px}
+.host-txt b{color:var(--ink);white-space:nowrap}
+
+/* Altri piani */
+.others{padding-top:0;padding-bottom:clamp(24px,3vw,40px)}
+.others-grid{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.other{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;padding:26px 28px;border-radius:var(--r-box);background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .2s}
+.other:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);border-color:var(--line-strong)}
+.other h3{font-size:1.35rem}
+.other h3 span{margin-left:8px;font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent);color:#FFFDFB;vertical-align:4px;letter-spacing:0}
+.other p{grid-column:1;color:var(--muted);font-size:15.5px}
+.other p.o-price{color:var(--ink-2);font-weight:600}
+.other > i{grid-column:2;grid-row:1/4;font-size:24px;color:var(--accent);transition:transform .25s var(--ease)}
+.other:hover > i{transform:translateX(3px)}
+.others .link-arrow{margin-top:22px}
+@media (max-width:759px){.others-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-pagina="piano-large">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<!-- Testata -->
+<section class="page-head" aria-labelledby="ph-title">
+  <div class="wrap">
+    <div>
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><a href="prezzi.html">Prezzi</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Piano Large</span>
+      </nav>
+      <nav class="plan-switch" aria-label="Piani"><a href="piano-small.html">Small</a><a href="piano-medium.html">Medium <span>Consigliato</span></a><a href="piano-large.html" aria-current="page">Large</a></nav>
+      <h1 id="ph-title">Large, per chi deve <em>vedere tutta l'agenzia insieme.</em></h1>
+      <p class="lead">Per agenzie con più sedi o grandi volumi, oltre 100 artisti e service interni.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="demo.html?piano=large">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-ghost" href="prezzi.html#confronto">Vedi i prezzi</a>
+      </div>
+    </div>
+    <div class="page-head-visual">
+      <div class="photo" style="--pos:40% 50%">
+        <img src="img/f-tecnico-service.jpg" width="2000" height="1333" fetchpriority="high" alt="Un tecnico del service con le cuffie regola il mixer accanto a una barra di luci, in una sala ricevimenti ancora vuota.">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Per chi è -->
+<section class="sec chi" id="per-chi" aria-labelledby="chi-title">
+  <div class="wrap">
+    <div class="chi-visual reveal">
+      <figure class="chi-panel">
+        <div class="browser">
+          <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="Dashboard dello staff in Quinte: eventi confermati, utile stimato, acconti incassati, artisti nel roster, prossimi eventi, appuntamenti e clienti da richiamare.">
+        </div>
+        <figcaption class="chi-cap">La dashboard dello staff: eventi, incassi, appuntamenti e clienti da richiamare in una pagina.</figcaption>
+      </figure>
+    </div>
+    <div class="reveal d1">
+      <h2 class="h2" id="chi-title">Per chi è Large.</h2>
+      <p class="lead">Per l'agenzia che è cresciuta abbastanza da non riuscire più a tenere tutto a mente.</p>
+      <ul class="chi-list">
+          <li><i class="ph ph-buildings" aria-hidden="true"></i>Avete più sedi o lavorate con grandi volumi di eventi.</li>
+          <li><i class="ph ph-users-four" aria-hidden="true"></i>Gestite oltre 100 artisti.</li>
+          <li><i class="ph ph-speaker-hifi" aria-hidden="true"></i>Il service è interno all'agenzia.</li>
+          <li><i class="ph ph-binoculars" aria-hidden="true"></i>Ti serve una visione d'insieme: chi lavora dove, quanto si incassa, cosa manca.</li>
+      </ul>
+      <p class="chi-close"><i class="ph ph-arrow-bend-down-right" aria-hidden="true"></i><span>Large toglie i limiti su staff, artisti e service e aggiunge più sedi o team, personalizzazioni e assistenza prioritaria.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- Quanto costa -->
+<section class="sec costo" id="costo" aria-labelledby="costo-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="costo-title">Quanto costa Large.</h2>
+    <p class="lead reveal d1">Un setup una volta sola, poi la licenza annuale con aggiornamenti e assistenza.</p>
+
+    <div class="costo-box reveal">
+      <div class="costo-main">
+        <p class="costo-label">Licenza annuale</p>
+        <p class="costo-big num">da € 3.500 <small>/ anno</small></p>
+        <ul class="costo-rows">
+          <li><span>Setup<small>Una tantum</small></span><b class="num">da € 5.000</b></li>
+          <li><span>Hosting</span><b class="num">di norma sul tuo server</b></li>
+        </ul>
+        <p class="vat">Prezzi IVA esclusa.</p>
+        <a class="btn btn-primary" href="demo.html?piano=large">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="costo-side">
+        <h3>Limiti del piano</h3>
+        <div>
+          <div class="lim"><span>Staff (admin)</span><b class="num">illimitati</b></div>
+          <div class="lim"><span>Artisti nel roster</span><b class="num">illimitati</b></div>
+          <div class="lim"><span>Service</span><b class="num">illimitati</b></div>
+        </div>
+        <p class="lim-free"><i class="ph ph-gift" aria-hidden="true"></i>Artisti, service e clienti accedono gratis e senza limiti.</p>
+      </div>
+    </div>
+
+    <div class="grow reveal">
+      <i class="ph ph-trend-up" aria-hidden="true"></i>
+      <div>
+        <h3>Se ti serve qualcosa in più</h3>
+        <p>Sedi, team e personalizzazioni li definiamo con te. Se la tua agenzia cambia, ne parliamo.</p>
+      </div>
+      <a class="link-arrow" href="contatti.html">Scrivici <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- Moduli -->
+<section class="sec moduli" id="moduli" aria-labelledby="mod-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="mod-title">Cosa c'è dentro Large.</h2>
+    <p class="lead reveal d1">In tutti i piani artisti, service e clienti hanno la loro area nell'app.</p>
+    <div class="mod-grid">
+      <div class="mod-col reveal">
+        <h3><i class="ph ph-check-circle" aria-hidden="true"></i>Tutto quello che c'è in Medium</h3>
+        <ul class="mod-list">
+            <li><i class="ph ph-clipboard-text" aria-hidden="true"></i><div><b>Eventi</b><p>Scheda in sei sezioni, stati, rinvii con storico delle date, cestino con ripristino.</p></div></li>
+            <li><i class="ph ph-microphone-stage" aria-hidden="true"></i><div><b>Cast e conferme</b><p>Artisti per momento con cachet e dress code. L'artista accetta o rifiuta dal telefono.</p></div></li>
+            <li><i class="ph ph-chat-circle-dots" aria-hidden="true"></i><div><b>Chat</b><p>Una chat in tempo reale per ogni evento, tra staff e cast.</p></div></li>
+            <li><i class="ph ph-calendar-check" aria-hidden="true"></i><div><b>Calendario</b><p>Eventi, appuntamenti e assenze. Vedi subito chi è già impegnato.</p></div></li>
+            <li><i class="ph ph-bell-ringing" aria-hidden="true"></i><div><b>Notifiche</b><p>Nuovo incarico, risposta dell'artista, rinvio, messaggi in chat.</p></div></li>
+            <li class="soon"><i class="ph ph-sparkle" aria-hidden="true"></i><div><b>Connessione AI</b><p>Collegherai il tuo assistente AI al gestionale, con i tuoi permessi.</p></div></li>
+            <li><i class="ph ph-chart-line-up" aria-hidden="true"></i><div><b>Finanze e spese</b><p>Fino a 6 acconti per evento, saldo calcolato, spese, margine, riepilogo mensile, export CSV. Le vede solo il titolare.</p></div></li>
+            <li><i class="ph ph-signature" aria-hidden="true"></i><div><b>Contratti</b><p>Generati dal tuo modello quando l'artista accetta. Anche contratto e privacy del cliente.</p></div></li>
+            <li><i class="ph ph-address-book" aria-hidden="true"></i><div><b>CRM appuntamenti</b><p>Prossimi incontri e clienti da richiamare. Dall'appuntamento nasce l'evento.</p></div></li>
+        </ul>
+      </div>
+      <div class="mod-col plus reveal d1">
+        <h3><i class="ph ph-star" aria-hidden="true"></i>Solo in Large</h3>
+        <ul class="mod-list">
+            <li><i class="ph ph-buildings" aria-hidden="true"></i><div><b>Più sedi o team</b><p>Per l'agenzia che lavora su più sedi o con più team.</p></div></li>
+            <li><i class="ph ph-sliders-horizontal" aria-hidden="true"></i><div><b>Personalizzazioni</b><p>Adattamenti su misura della tua agenzia, da concordare insieme.</p></div></li>
+            <li><i class="ph ph-lifebuoy" aria-hidden="true"></i><div><b>Assistenza prioritaria</b><p>Le richieste della tua agenzia hanno la precedenza.</p></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Setup e hosting -->
+<section class="sec sh" id="setup" aria-labelledby="sh-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="sh-title">Setup e hosting.</h2>
+    <div class="price-foot">
+      <div class="setup-box reveal">
+        <h3>Il setup di Large: <b class="num">da € 5.000</b>, una volta sola</h3>
+        <ul class="setup-list">
+          <li><i class="ph ph-hard-drives" aria-hidden="true"></i>Installazione</li>
+          <li><i class="ph ph-globe-simple" aria-hidden="true"></i>Dominio e HTTPS</li>
+          <li><i class="ph ph-bell-ringing" aria-hidden="true"></i>Notifiche push</li>
+          <li><i class="ph ph-envelope-simple" aria-hidden="true"></i>Invio email</li>
+          <li><i class="ph ph-upload-simple" aria-hidden="true"></i>Import dei tuoi dati</li>
+          <li><i class="ph ph-palette" aria-hidden="true"></i>Logo e colori</li>
+          <li><i class="ph ph-file-text" aria-hidden="true"></i>Modelli di contratto</li>
+          <li><i class="ph ph-chalkboard-teacher" aria-hidden="true"></i>Formazione dello staff (2-4 ore)</li>
+        </ul>
+      </div>
+      <div class="all-box reveal d1">
+        <h3>Dove gira</h3>
+        <div class="host-txt">
+          <p>Di norma Quinte gira <b>sul tuo server</b>: lo installiamo lì durante il setup.</p>
+          <p>Cosa deve avere il server lo vediamo insieme prima di partire.</p>
+        </div>
+        <p class="vat">Ogni agenzia ha la sua installazione dedicata: i dati sono solo suoi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Domande sul piano -->
+<section class="sec faq" id="domande-piano" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <h2 class="h2" id="faq-title">Domande su Large</h2>
+      <p style="margin-top:18px"><a class="link-arrow" href="domande.html">Tutte le domande <i class="ph ph-arrow-right" aria-hidden="true"></i></a></p>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Perché la licenza è «da € 3.500»?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Perché Large si adatta all'agenzia: sedi, team e personalizzazioni cambiano da caso a caso. Il prezzo esatto lo concordiamo prima del setup.</p>
+      </details>
+      <details>
+        <summary>Ci sono limiti su staff, artisti e service?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>No. In Large staff, artisti nel roster e service sono illimitati. Artisti, service e clienti accedono gratis come in tutti i piani.</p>
+      </details>
+      <details>
+        <summary>Dove gira l'installazione?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Di norma sul tuo server: la installiamo lì durante il setup. Se preferisci un'altra soluzione, ne parliamo.</p>
+      </details>
+      <details>
+        <summary>Cosa vuol dire assistenza prioritaria?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Che le richieste della tua agenzia hanno la precedenza. Come funziona nel dettaglio lo mettiamo per iscritto quando definiamo il piano.</p>
+      </details>
+      <details>
+        <summary>Posso provarlo prima di decidere?<i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p>Sì. La demo è gratuita, non chiediamo la carta: la provi per 14 giorni con dati di esempio e con il tuo staff.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Altri piani -->
+<section class="sec others" aria-labelledby="others-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="others-title">Gli altri piani.</h2>
+    <div class="others-grid">
+      <a class="other reveal" href="piano-small.html">
+        <h3>Small</h3>
+        <p>Band e piccole agenzie</p>
+        <p class="o-price num"><span class="nowrap">€ 690 / anno</span>, <span class="nowrap">setup da € 1.200</span></p>
+        <i class="ph ph-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a class="other reveal" href="piano-medium.html">
+        <h3>Medium<span>Consigliato</span></h3>
+        <p>Agenzie strutturate</p>
+        <p class="o-price num"><span class="nowrap">€ 1.790 / anno</span>, <span class="nowrap">setup da € 2.500</span></p>
+        <i class="ph ph-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+    <a class="link-arrow" href="prezzi.html#confronto">Confronta i tre piani voce per voce <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+</body>
+</html>

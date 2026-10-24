@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Funzioni · Quinte</title>
+<meta name="description" content="Tutte le funzioni di Quinte, area per area: scheda evento, cast per momento, calendario e disponibilità, chat, contratti, pagamenti e finanze, musica, anagrafiche, aree per artisti, service e clienti.">
+<meta name="color-scheme" content="light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Solo per funzioni.html */
+html{scroll-padding-top:calc(var(--nav-h) + 76px)}
+
+/* Testata: schermata con telefono sovrapposto */
+.fx-head-visual{padding:0 0 9% 0}
+.fx-head-visual .browser{width:90%}
+.fx-head-visual .phone{position:absolute;right:0;bottom:0;width:27%}
+@media (prefers-reduced-motion:no-preference){
+  .fx-head-visual .browser{animation:fxRise 1s var(--ease) .1s both}
+  .fx-head-visual .phone{animation:fxRise 1s var(--ease) .26s both}
+  .page-head .fx-copy > *{animation:fxRise .9s var(--ease) both}
+  .page-head .fx-copy > *:nth-child(2){animation-delay:.06s}
+  .page-head .fx-copy > *:nth-child(3){animation-delay:.12s}
+  .page-head .fx-copy > *:nth-child(4){animation-delay:.18s}
+  @keyframes fxRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+}
+
+/* Barra delle aree (ancore) */
+.areas{position:sticky;top:var(--nav-h);z-index:40;background:rgba(250,250,250,.92);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+.areas .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding-top:9px;padding-bottom:9px}
+.areas .wrap::-webkit-scrollbar{display:none}
+.areas a{flex-shrink:0;white-space:nowrap;text-decoration:none;font-size:14.5px;font-weight:600;color:var(--muted);padding:8px 12px;border-radius:8px;transition:background-color .2s,color .2s}
+.areas a:hover{background:var(--sunk);color:var(--ink)}
+.areas a.on{background:var(--accent-tint);color:var(--accent-hover)}
+
+/* Ritagli delle schermate: --w larghezza dell'immagine, --x e --y spostamento (in % della larghezza della cornice) */
+.crop{position:relative;overflow:hidden;background:var(--surface)}
+.crop img{width:var(--w);max-width:none;height:auto;margin-left:var(--x);margin-top:var(--y)}
+
+.sec-head .lead{max-width:60ch}
+
+/* Eventi */
+.ev-tabs{margin-top:28px}
+.ev-grid{margin-top:36px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:start}
+.ev-shot .crop{aspect-ratio:1120/620}
+.ev-side h3{font-size:1.2rem}
+.ev-side > div + div{margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}
+.flow{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.flow .pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;font-size:14px;font-weight:650;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2)}
+.flow .pill.mid{border-color:#FEDF89;background:#FFFAEB;color:#93370D}
+.flow .pill.ok{border-color:#ABEFC6;background:#ECFDF3;color:var(--success)}
+.flow > i{color:var(--line-strong);font-size:16px}
+.act-list{margin-top:16px;display:grid;gap:14px}
+.act-list li{display:grid;grid-template-columns:22px 1fr;gap:12px;color:var(--ink-2)}
+.act-list i{font-size:20px;color:var(--accent);margin-top:2px}
+.act-list b{color:var(--ink);font-weight:650}
+.details{margin-top:clamp(36px,4vw,52px);display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(20px,3vw,48px);align-items:start;padding:clamp(22px,3vw,32px);border-radius:var(--r-box);background:var(--sunk)}
+.details h3{font-size:1.15rem}
+.details p{margin-top:6px;color:var(--muted);font-size:15.5px}
+.details .chips{margin-top:0}
+
+/* Cast */
+.cast{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cast-shot{margin-top:44px;position:relative}
+.cast-shot .crop{aspect-ratio:1096/446}
+.cast-facts{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.cast-facts > li{padding-top:18px;border-top:2px solid var(--accent-line)}
+.cast-facts > li:last-child{border-top-color:var(--accent-bright)}
+.cast-facts i{font-size:24px;color:var(--accent)}
+.cast-facts h3{margin-top:10px;font-size:1.08rem;letter-spacing:-.015em}
+.cast-facts p{margin-top:6px;color:var(--muted);font-size:15.5px}
+.cast-facts .chips{margin-top:10px;gap:6px}
+.cast-facts .chip{padding:5px 9px;font-size:13px}
+
+/* Calendario */
+.cal .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:center}
+.cal-visual{position:relative;padding:clamp(24px,4vw,48px);border-radius:28px;background:var(--accent-tint);border:1px solid var(--accent-line)}
+.cal-visual figure{margin:0 auto;max-width:460px;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--surface)}
+.toggle-note{margin-top:28px;display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
+.toggle-note > i{font-size:28px;color:var(--accent);flex-shrink:0}
+.toggle-note b{display:block;color:var(--ink)}
+.toggle-note span{color:var(--muted);font-size:15.5px}
+
+/* Chat e notifiche */
+.chat-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:clamp(28px,4vw,56px);align-items:center}
+.chat-grid .h2{font-size:clamp(1.8rem,2.5vw,2.3rem)}
+.chat-phone{position:relative;display:flex;justify-content:center;padding:36px 0}
+.chat-phone::before{content:"";position:absolute;inset:0 6%;border-radius:28px;background:var(--sunk);border:1px solid var(--line)}
+.chat-phone .phone{position:relative;width:min(100%,250px)}
+.notif-title{font-size:1.15rem}
+.notif{margin-top:18px;display:grid;gap:10px}
+.notif li{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-weight:600;color:var(--ink-2);font-size:15.5px}
+.notif i{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-tint);color:var(--accent);font-size:18px;flex-shrink:0}
+
+/* Contratti */
+.contracts{border-top:1px solid var(--line)}
+.c-steps{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:none}
+.c-steps li{position:relative;padding:0 24px 0 0}
+.c-steps li::before{content:"";position:absolute;top:27px;left:56px;right:0;height:2px;background:var(--accent-line)}
+.c-steps li:last-child::before{display:none}
+.c-ico{position:relative;width:56px;height:56px;border-radius:16px;display:grid;place-items:center;background:var(--surface);border:1px solid var(--accent-line);color:var(--accent);font-size:26px;box-shadow:var(--shadow-sm)}
+.c-steps li:last-child .c-ico{background:var(--accent);border-color:var(--accent);color:#FFFDFB}
+.c-steps h3{margin-top:18px;font-size:1.12rem}
+.c-steps p{margin-top:6px;color:var(--muted);font-size:15.5px;max-width:30ch}
+.c-extra{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.c-extra > div{display:flex;gap:14px;align-items:flex-start;padding:22px 24px;border-radius:var(--r-box);border:1px solid var(--line);background:var(--surface)}
+.c-extra i{font-size:26px;color:var(--accent);flex-shrink:0}
+.c-extra b{display:block;color:var(--ink)}
+.c-extra span{color:var(--muted);font-size:15.5px}
+
+/* Finanze */
+.money{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lock-note{margin-top:18px;display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:var(--sunk);color:var(--ink-2);font-weight:600;font-size:15.5px}
+.lock-note i{color:var(--accent);font-size:19px}
+.money-shot{margin-top:40px}
+.money-shot .crop{aspect-ratio:1128/530}
+.money-facts{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px clamp(24px,4vw,56px)}
+.money-facts li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.money-facts i{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:var(--accent-tint);color:var(--accent);font-size:22px}
+.money-facts b{display:block;color:var(--ink);font-size:1.02rem}
+.money-facts span{display:block;margin-top:2px;color:var(--muted);font-size:15.5px}
+
+/* Musica */
+.music .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(36px,5vw,80px);align-items:center}
+.music-photo{margin:0;border-radius:var(--r-box);overflow:hidden;aspect-ratio:5/4;box-shadow:var(--shadow-md)}
+.music-photo img{width:100%;height:100%;object-fit:cover;object-position:45% 55%}
+.music .ticks li{font-size:16.5px}
+.music-close{margin-top:24px;font-weight:650;color:var(--ink)}
+
+/* Anagrafiche e CRM */
+.reg{border-top:1px solid var(--line)}
+.reg-grid{margin-top:44px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;grid-template-areas:"crm crm artisti clienti" "crm crm luoghi service"}
+.reg-grid .cell:hover{transform:none;box-shadow:none}
+.r-crm{grid-area:crm;padding:0;background:var(--surface)}
+.r-crm-body{padding:26px 26px 0;display:flex;flex-direction:column;gap:10px}
+.r-crm .crop{margin:22px 0 0 26px;border-radius:12px 0 0 0;border:1px solid var(--line);border-right:0;border-bottom:0;aspect-ratio:1120/440;flex-grow:1}
+.r-artisti{grid-area:artisti;background:var(--accent-tint);border-color:var(--accent-line)}
+.r-clienti{grid-area:clienti}
+.r-luoghi{grid-area:luoghi;background:var(--sunk)}
+.r-service{grid-area:service}
+
+/* Aree dedicate */
+.areas-sec{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.areas-sec .panel{background:var(--bg)}
+
+/* Su misura e sicurezza */
+.own-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:16px;align-items:stretch}
+.own-box{border-radius:var(--r-box);padding:clamp(24px,3.4vw,44px);border:1px solid var(--line);background:var(--surface)}
+.own-box h2{font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:-.03em}
+.own-box > p{margin-top:12px;color:var(--muted)}
+.own-box .swatches{margin-top:24px}
+.own-box .ticks{margin-top:22px}
+.own-box.safe{background:var(--accent-tint);border-color:var(--accent-line)}
+.own-box.safe > p{color:var(--ink-2)}
+.own-box.safe .big-ico{font-size:40px;color:var(--accent);margin-bottom:18px;display:block}
+#su-misura{padding-bottom:8px}
+.own-more{margin-top:28px}
+
+@media (max-width:1079px){
+  .reg-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"crm crm" "artisti clienti" "luoghi service"}
+  .cast-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:959px){
+  .ev-grid,.cal .wrap,.music .wrap,.own-grid{grid-template-columns:1fr}
+  .chat-grid{grid-template-columns:1fr}
+  .chat-phone{order:2}
+  .notif-col{order:3}
+  .c-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 0}
+  .c-steps li:nth-child(2)::before{display:none}
+  .money-facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .details{grid-template-columns:1fr}
+}
+@media (max-width:959px) and (min-width:480px){.notif{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:859px){
+  .fx-head-visual{max-width:640px}
+}
+@media (max-width:639px){
+  .cast-facts,.money-facts,.c-extra{grid-template-columns:1fr}
+  .c-steps{grid-template-columns:1fr;gap:28px}
+  .c-steps li{padding:0 0 0 76px;min-height:56px}
+  .c-steps li::before{display:block;top:56px;bottom:-28px;left:27px;right:auto;width:2px;height:auto}
+  .c-steps li:nth-child(2)::before{display:block}
+  .c-steps li:last-child::before{display:none}
+  .c-ico{position:absolute;left:0;top:0}
+  .c-steps h3{margin-top:4px}
+  .reg-grid{grid-template-columns:1fr;grid-template-areas:"crm" "artisti" "clienti" "luoghi" "service"}
+  .r-crm .crop{margin-left:20px}
+  .r-crm-body{padding:22px 22px 0}
+}
+</style>
+</head>
+<body data-pagina="funzioni">
+<!-- parte:testata -->
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Quinte, vai alla home"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+    <nav class="nav-links" aria-label="Principale">
+      <a href="funzioni.html" data-pagina="funzioni" aria-current="page">Funzioni</a>
+      <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+      <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+      <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+      <a href="contatti.html" data-pagina="contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="demo.html">Prova la demo gratis</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Apri il menu"><i class="ph ph-list" aria-hidden="true"></i></button>
+  </div>
+  <nav class="nav-panel" id="nav-panel" aria-label="Menu">
+    <a href="index.html" data-pagina="home">Home</a>
+    <a href="funzioni.html" data-pagina="funzioni" aria-current="page">Funzioni</a>
+    <a href="connessione-ai.html" data-pagina="connessione-ai">Connessione AI</a>
+    <a href="prezzi.html" data-pagina="prezzi">Prezzi</a>
+    <a href="chi-siamo.html" data-pagina="chi-siamo">Chi siamo</a>
+    <a href="domande.html" data-pagina="domande">Domande frequenti</a>
+    <a href="contatti.html" data-pagina="contatti">Contatti</a>
+  </nav>
+</header>
+<!-- /parte:testata -->
+
+<main id="main">
+
+<!-- Testata -->
+<section class="page-head" aria-labelledby="page-title">
+  <div class="wrap">
+    <div class="fx-copy">
+      <nav class="crumbs" aria-label="Sei qui">
+        <a href="index.html">Home</a><i class="ph ph-caret-right" aria-hidden="true"></i><span aria-current="page">Funzioni</span>
+      </nav>
+      <h1 id="page-title">Ogni funzione, <em>dal primo incontro al saldo.</em></h1>
+      <p class="lead">Eventi, cast, calendario, contratti, pagamenti e musica. Qui trovi cosa fa Quinte, area per area, con le schermate dell'app.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+      </div>
+    </div>
+    <div class="page-head-visual fx-head-visual">
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="img/app-dashboard.png" width="1440" height="1162" fetchpriority="high" alt="Dashboard dello staff di Quinte: eventi confermati, utile stimato, acconti incassati, artisti nel roster, prossimi eventi, appuntamenti e clienti da richiamare.">
+      </div>
+      <div class="phone">
+        <div class="phone-screen">
+          <img src="img/app-chat-mobile.png" width="390" height="844" alt="La chat di un matrimonio sul telefono: lo staff e gli artisti del cast confermano la loro parte.">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigazione per aree -->
+<nav class="areas" aria-label="Aree delle funzioni">
+  <div class="wrap">
+    <a href="#eventi">Eventi</a>
+    <a href="#cast">Cast</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#chat">Chat e notifiche</a>
+    <a href="#contratti">Contratti</a>
+    <a href="#finanze">Pagamenti e finanze</a>
+    <a href="#musica">Musica</a>
+    <a href="#anagrafiche">Anagrafiche e CRM</a>
+    <a href="#aree">Aree dedicate</a>
+    <a href="#su-misura">Su misura e sicurezza</a>
+  </div>
+</nav>
+
+<!-- Eventi -->
+<section class="sec" id="eventi" aria-labelledby="ev-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Eventi</span>
+      <h2 class="h2" id="ev-title">Una scheda per ogni evento, con dentro tutto.</h2>
+      <p class="lead">La scheda è divisa in sei sezioni. Se un collega cambia qualcosa, chi la sta guardando la vede aggiornarsi in tempo reale.</p>
+      <ul class="chips ev-tabs" aria-label="Sezioni della scheda evento">
+        <li class="chip on"><i class="ph ph-squares-four" aria-hidden="true"></i>Panoramica</li>
+        <li class="chip"><i class="ph ph-microphone-stage" aria-hidden="true"></i>Cast artistico</li>
+        <li class="chip"><i class="ph ph-hand-coins" aria-hidden="true"></i>Pagamenti</li>
+        <li class="chip"><i class="ph ph-music-notes" aria-hidden="true"></i>Musica</li>
+        <li class="chip"><i class="ph ph-speaker-hifi" aria-hidden="true"></i>Allestimento e service</li>
+        <li class="chip"><i class="ph ph-signature" aria-hidden="true"></i>Contratti</li>
+      </ul>
+    </div>
+
+    <div class="ev-grid">
+      <div class="browser ev-shot reveal">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="crop" style="--w:128.571%;--x:-26.786%;--y:-60.357%">
+          <img src="img/app-incarico-artista.png" width="1440" height="1515" loading="lazy" alt="Panoramica di un matrimonio: tipologia, fascia pranzo, 150 invitati, rito religioso, chiesa e orario del rito, referente, cliente, location e chiesa con il collegamento ad Apri in Maps.">
+        </div>
+      </div>
+
+      <div class="ev-side reveal d1">
+        <div>
+          <h3>Sai sempre a che punto è</h3>
+          <div class="flow" aria-label="Stati di un evento">
+            <span class="pill">Bozza</span><i class="ph ph-caret-right" aria-hidden="true"></i>
+            <span class="pill mid">Da confermare</span><i class="ph ph-caret-right" aria-hidden="true"></i>
+            <span class="pill ok">Confermato</span>
+          </div>
+        </div>
+        <div>
+          <h3>Quando i programmi cambiano</h3>
+          <ul class="act-list">
+            <li><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i><span><b>Rinvio</b> con lo storico delle date e l'avviso al cast.</span></li>
+            <li><i class="ph ph-pause-circle" aria-hidden="true"></i><span><b>Sospendi e riattiva</b> l'evento, scrivendo il motivo.</span></li>
+            <li><i class="ph ph-copy" aria-hidden="true"></i><span><b>Duplica</b> un evento simile invece di riscriverlo.</span></li>
+            <li><i class="ph ph-trash" aria-hidden="true"></i><span><b>Cestino</b> con ripristino, se cancelli per sbaglio.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="details reveal">
+      <div>
+        <h3>I dettagli che servono</h3>
+        <p>Chiesa e rito compaiono solo quando servono.</p>
+      </div>
+      <ul class="chips" aria-label="Dettagli dell'evento">
+        <li class="chip"><i class="ph ph-tag" aria-hidden="true"></i>Tipologia di evento</li>
+        <li class="chip"><i class="ph ph-sun" aria-hidden="true"></i>Fascia: pranzo o cena</li>
+        <li class="chip"><i class="ph ph-users" aria-hidden="true"></i>Invitati</li>
+        <li class="chip"><i class="ph ph-church" aria-hidden="true"></i>Chiesa e rito</li>
+        <li class="chip"><i class="ph ph-map-pin" aria-hidden="true"></i>Location con Maps</li>
+        <li class="chip"><i class="ph ph-identification-card" aria-hidden="true"></i>Referente</li>
+        <li class="chip"><i class="ph ph-signpost" aria-hidden="true"></i>Da dove arriva il cliente</li>
+        <li class="chip"><i class="ph ph-copyright" aria-hidden="true"></i>SIAE</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Cast -->
+<section class="sec cast" id="cast" aria-labelledby="cast-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2 class="h2" id="cast-title">Il cast si compone per momento, non per telefonata.</h2>
+      <p class="lead">Per ogni momento della giornata scegli chi suona. L'incarico parte, l'artista risponde dal telefono e tu vedi lo stato cambiare.</p>
+    </div>
+
+    <div class="cast-shot reveal d1">
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="crop" style="--w:131.387%;--x:-28.467%;--y:-40.693%">
+          <img src="img/app-cast.png" width="1440" height="955" loading="lazy" alt="Tabella del cast di un matrimonio: aperitivo, buffet iniziale, sala, buffet finale e taglio torta, con artista, ruolo, stato dell'incarico, dress code e cachet. In fondo il totale dei cachet e il margine stimato.">
+        </div>
+      </div>
+    </div>
+
+    <ul class="cast-facts">
+      <li class="reveal">
+        <i class="ph ph-microphone-stage" aria-hidden="true"></i>
+        <h3>Artisti per momento</h3>
+        <ul class="chips" aria-label="Esempi di momenti">
+          <li class="chip">Aperitivo</li><li class="chip">Cerimonia</li><li class="chip">Sala</li><li class="chip">Taglio torta</li>
+        </ul>
+      </li>
+      <li class="reveal d1">
+        <i class="ph ph-coat-hanger" aria-hidden="true"></i>
+        <h3>Cachet e dress code</h3>
+        <p>Si decidono incarico per incarico, non una volta per tutte.</p>
+      </li>
+      <li class="reveal d2">
+        <i class="ph ph-hourglass-medium" aria-hidden="true"></i>
+        <h3>In attesa, accettato, rifiutato</h3>
+        <p>Lo stato di ogni incarico, e in fondo il totale dei cachet e il margine stimato.</p>
+      </li>
+      <li class="reveal d3">
+        <i class="ph ph-device-mobile" aria-hidden="true"></i>
+        <h3>Risponde dal telefono</h3>
+        <p>L'artista riceve la notifica e accetta o rifiuta. Niente giri di messaggi.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- Calendario -->
+<section class="sec cal" id="calendario" aria-labelledby="cal-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="cal-title">Prima di chiamare un artista, sai già se è libero.</h2>
+      <p class="lead">Il calendario dell'agenzia mette insieme eventi, appuntamenti, eventi interni e assenze dello staff, mese per mese.</p>
+      <ul class="ticks">
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Filtri per artista e vedi solo i suoi impegni</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Apri un giorno e vedi chi è già impegnato, e dove</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Eviti di mettere lo stesso artista su due eventi</li>
+      </ul>
+      <p class="toggle-note">
+        <i class="ph ph-toggle-right" aria-hidden="true"></i>
+        <span><b>Disponibilità degli artisti</b>L'artista blocca le date in cui non c'è e lo staff le vede mentre compone il cast. Si accende dalle opzioni.</span>
+      </p>
+    </div>
+    <div class="cal-visual reveal d1">
+      <figure>
+        <img src="img/app-calendario-giorno.png" width="560" height="592" loading="lazy" alt="Pannello di venerdì 2 aprile nel calendario: due artisti già impegnati su un matrimonio e due artisti non disponibili, uno in ferie e uno con un altro ingaggio.">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Chat e notifiche -->
+<section class="sec" id="chat" aria-labelledby="chat-title" style="padding-top:0">
+  <div class="wrap chat-grid">
+    <div class="reveal">
+      <h2 class="h2" id="chat-title">Una chat per ogni evento, al posto del gruppo WhatsApp.</h2>
+      <p class="lead">Staff e cast si scrivono in tempo reale dentro la scheda dell'evento. Il contatore dei non letti ti dice dove c'è qualcosa di nuovo.</p>
+    </div>
+    <div class="chat-phone reveal d1">
+      <div class="phone">
+        <div class="phone-screen">
+          <img src="img/app-chat-mobile.png" width="390" height="844" loading="lazy" alt="Chat di un matrimonio sul telefono: la titolare saluta il cast, la band, la violinista e la sassofonista confermano.">
+        </div>
+      </div>
+    </div>
+    <div class="notif-col reveal d2">
+      <h3 class="notif-title">Notifiche push sul telefono</h3>
+      <ul class="notif">
+        <li><i class="ph ph-user-plus" aria-hidden="true"></i>Nuovo incarico</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Risposta dell'artista</li>
+        <li><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>Rinvio dell'evento</li>
+        <li><i class="ph ph-truck" aria-hidden="true"></i>Service assegnato</li>
+        <li><i class="ph ph-chat-circle-dots" aria-hidden="true"></i>Messaggi in chat</li>
+        <li><i class="ph ph-file-text" aria-hidden="true"></i>Contratti</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contratti -->
+<section class="sec contracts" id="contratti" aria-labelledby="ctr-title">
+  <div class="wrap">
+    <div class="reveal">
+      <h2 class="h2" id="ctr-title">Il contratto parte da solo quando l'artista accetta.</h2>
+      <p class="lead">Lo prepari una volta come modello, con i tuoi testi. Quinte lo compila con i dati dell'evento.</p>
+    </div>
+    <ol class="c-steps">
+      <li class="reveal">
+        <span class="c-ico"><i class="ph ph-file-text" aria-hidden="true"></i></span>
+        <h3>Si genera dal modello</h3>
+        <p>Appena l'artista accetta l'incarico, con i dati dell'evento già dentro.</p>
+      </li>
+      <li class="reveal d1">
+        <span class="c-ico"><i class="ph ph-download-simple" aria-hidden="true"></i></span>
+        <h3>Si scarica e si firma</h3>
+        <p>L'artista lo apre dal telefono o dal computer.</p>
+      </li>
+      <li class="reveal d2">
+        <span class="c-ico"><i class="ph ph-upload-simple" aria-hidden="true"></i></span>
+        <h3>Si ricarica firmato</h3>
+        <p>Resta archiviato nella scheda dell'evento, non in una cartella qualunque.</p>
+      </li>
+      <li class="reveal d3">
+        <span class="c-ico"><i class="ph ph-seal-check" aria-hidden="true"></i></span>
+        <h3>Lo staff lo valida</h3>
+        <p>Oppure lo rifiuta, se qualcosa non va.</p>
+      </li>
+    </ol>
+    <div class="c-extra">
+      <div class="reveal">
+        <i class="ph ph-heart" aria-hidden="true"></i>
+        <span><b>Anche per il cliente</b>Contratto del cliente e informativa privacy, con lo stesso giro.</span>
+      </div>
+      <div class="reveal d1">
+        <i class="ph ph-note-pencil" aria-hidden="true"></i>
+        <span><b>Firmato su carta?</b>Lo staff può caricarlo al posto loro. I modelli si modificano dalle opzioni.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pagamenti e finanze -->
+<section class="sec money" id="finanze" aria-labelledby="money-title">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Pagamenti e finanze</span>
+      <h2 class="h2" id="money-title">Quanto hai incassato, quanto manca, quanto ti resta.</h2>
+      <p class="lead">Acconti e saldo di ogni evento, le spese e il margine, in una pagina sola.</p>
+      <p class="lock-note"><i class="ph ph-lock-key" aria-hidden="true"></i>Le finanze le vede solo il titolare.</p>
+    </div>
+    <div class="browser money-shot reveal d1">
+      <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="crop" style="--w:127.660%;--x:-26.241%;--y:-1.773%">
+        <img src="img/app-finanze.png" width="1440" height="1219" loading="lazy" alt="Pagina Finanze e Spese: incassato, da incassare, spese e margine dell'anno, il pulsante Esporta CSV e le schede Movimenti, Riepilogo mensile e Spese per categoria.">
+      </div>
+    </div>
+    <ul class="money-facts">
+      <li class="reveal"><i class="ph ph-hand-coins" aria-hidden="true"></i><span><b>Fino a 6 acconti per evento</b><span>Il saldo si calcola da solo.</span></span></li>
+      <li class="reveal d1"><i class="ph ph-receipt" aria-hidden="true"></i><span><b>Spese per evento e dell'agenzia</b><span>Anche quelle personali, se vuoi tenerle qui.</span></span></li>
+      <li class="reveal d2"><i class="ph ph-chart-line-up" aria-hidden="true"></i><span><b>Margine</b><span>Quello che resta, evento per evento.</span></span></li>
+      <li class="reveal"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span><b>Riepilogo mensile</b><span>Entrate e uscite mese per mese.</span></span></li>
+      <li class="reveal d1"><i class="ph ph-chart-pie-slice" aria-hidden="true"></i><span><b>Spese per categoria</b><span>Vedi dove vanno i soldi.</span></span></li>
+      <li class="reveal d2"><i class="ph ph-file-csv" aria-hidden="true"></i><span><b>Export CSV</b><span>Da aprire in Excel o da girare al commercialista.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Musica -->
+<section class="sec music" id="musica" aria-labelledby="music-title">
+  <div class="wrap">
+    <figure class="music-photo reveal">
+      <img src="img/f-quartetto-chiesa.jpg" width="2000" height="1333" loading="lazy" alt="Un quartetto d'archi suona durante una cerimonia in una chiesa barocca, con gli invitati sui banchi.">
+    </figure>
+    <div class="reveal d1">
+      <h2 class="h2" id="music-title">I brani li sceglie il cliente, entro la data che decidi tu.</h2>
+      <ul class="ticks">
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il repertorio è diviso per momento</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>I momenti della musica cambiano con il tipo di evento</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il cliente sceglie solo nei momenti che apri tu</li>
+        <li><i class="ph ph-check-circle" aria-hidden="true"></i>Decidi tu fino a quanti giorni prima può scegliere</li>
+      </ul>
+      <p class="music-close">Poi la scelta si chiude da sola, e la scaletta non cambia più la sera prima.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Anagrafiche e CRM -->
+<section class="sec reg" id="anagrafiche" aria-labelledby="reg-title">
+  <div class="wrap">
+    <h2 class="h2 reveal" id="reg-title">Le persone e i posti, una volta sola.</h2>
+    <p class="lead reveal d1">Inserisci artisti, clienti e luoghi una volta e li ritrovi in ogni evento.</p>
+
+    <div class="reg-grid">
+      <article class="cell r-crm reveal">
+        <div class="r-crm-body">
+          <i class="ph ph-address-book ico" aria-hidden="true"></i>
+          <h3>CRM appuntamenti</h3>
+          <p>I prossimi appuntamenti e i clienti da richiamare. Quando l'incontro va bene, dall'appuntamento nasce l'evento.</p>
+        </div>
+        <div class="crop" style="--w:128.571%;--x:-26.786%;--y:-62.143%">
+          <img src="img/app-dashboard.png" width="1440" height="1162" loading="lazy" alt="Riquadri Prossimi appuntamenti, con un primo incontro, un sopralluogo e un brief, e Da richiamare, con i clienti da ricontattare e il pulsante per chiamarli.">
+        </div>
+      </article>
+      <article class="cell r-artisti reveal d1">
+        <i class="ph ph-microphone-stage ico" aria-hidden="true"></i>
+        <h3>Artisti</h3>
+        <p>Effettivi e occasionali, con i momenti che coprono e il cachet standard.</p>
+      </article>
+      <article class="cell r-clienti reveal d2">
+        <i class="ph ph-user-list ico" aria-hidden="true"></i>
+        <h3>Clienti</h3>
+        <p>Ognuno con i suoi eventi e i suoi appuntamenti.</p>
+      </article>
+      <article class="cell r-luoghi reveal d1">
+        <i class="ph ph-map-trifold ico" aria-hidden="true"></i>
+        <h3>Location e chiese</h3>
+        <p>Con indirizzo e collegamento a Maps.</p>
+      </article>
+      <article class="cell r-service reveal d2">
+        <i class="ph ph-speaker-hifi ico" aria-hidden="true"></i>
+        <h3>Service</h3>
+        <p>Audio, luci e allestimenti da assegnare agli eventi.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Aree dedicate -->
+<section class="sec areas-sec" id="aree" aria-labelledby="areas-title">
+  <div class="wrap">
+    <span class="eyebrow reveal">Aree dedicate</span>
+    <h2 class="h2 reveal" id="areas-title">Artisti, service e clienti entrano dalla loro porta.</h2>
+    <p class="lead reveal d1">Ognuno ha un'area costruita per quello che deve fare, e non vede il resto.</p>
+
+    <div class="roles-tabs reveal d2" role="tablist" aria-label="Aree dedicate">
+      <button class="tab" role="tab" id="tab-artista" aria-controls="panel-artista" aria-selected="true"><i class="ph ph-microphone-stage" aria-hidden="true"></i>Area artista</button>
+      <button class="tab" role="tab" id="tab-service" aria-controls="panel-service" aria-selected="false" tabindex="-1"><i class="ph ph-speaker-hifi" aria-hidden="true"></i>Area service</button>
+      <button class="tab" role="tab" id="tab-cliente" aria-controls="panel-cliente" aria-selected="false" tabindex="-1"><i class="ph ph-heart" aria-hidden="true"></i>Area cliente</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-artista" aria-labelledby="tab-artista" tabindex="0">
+      <div>
+        <h3>Tutto quello che serve la sera dell'evento.</h3>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Incarichi da accettare e prossimi eventi</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il suo calendario e il cachet dell'anno</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il contratto da scaricare, firmare e ricaricare</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Il profilo con i dati che servono per il contratto</li>
+          <li class="hide"><i class="ph ph-eye-slash" aria-hidden="true"></i>Non vede i cachet dei colleghi</li>
+        </ul>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-photo"><img src="img/f-cantante-telefono.jpg" width="1500" height="2000" loading="lazy" style="object-position:50% 30%" alt="Una cantante in abito nero, in camerino, sorride guardando il telefono."></div>
+        <div class="phone pv-phone"><div class="phone-screen"><img src="img/app-artista-mobile.png" width="390" height="1276" loading="lazy" alt="L'area dell'artista sul telefono: prossimo evento, incarichi da accettare, eventi confermati e cachet dell'anno."></div></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-service" aria-labelledby="tab-service" tabindex="0" hidden>
+      <div>
+        <h3>Solo la logistica, niente soldi.</h3>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Dove montare e cosa serve per ogni evento</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Gli artisti dei suoi eventi, con le sue note</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>La location da aprire su Maps</li>
+          <li class="hide"><i class="ph ph-eye-slash" aria-hidden="true"></i>Non vede cachet, acconti e margini</li>
+        </ul>
+      </div>
+      <div class="panel-visual">
+        <div class="pv-photo"><img src="img/f-tecnico-service.jpg" width="2000" height="1333" loading="lazy" style="object-position:40% 50%" alt="Un tecnico del service con le cuffie regola il mixer accanto a una barra di luci, in una sala ricevimenti ancora vuota."></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-cliente" aria-labelledby="tab-cliente" tabindex="0" hidden>
+      <div>
+        <h3>Il suo evento, senza doverti chiamare.</h3>
+        <ul class="ticks">
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>I giorni che mancano all'evento</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Pagamenti fatti e da fare</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Gli artisti e la musica, con i brani da scegliere</li>
+          <li><i class="ph ph-check-circle" aria-hidden="true"></i>Contratto e informativa privacy</li>
+        </ul>
+      </div>
+      <div class="panel-visual pv-center">
+        <div class="phone"><div class="phone-screen"><img src="img/app-cliente-mobile.png" width="390" height="1204" loading="lazy" alt="L'area cliente sul telefono: il matrimonio di Elena e Marco, i giorni mancanti, la location, la chiesa, la playlist e il contratto da firmare."></div></div>
+      </div>
+    </div>
+
+    <p class="free-band reveal"><i class="ph ph-gift" aria-hidden="true"></i>Artisti, service e clienti accedono gratis e senza limiti, in tutti i piani.</p>
+  </div>
+</section>
+
+<!-- Su misura e sicurezza -->
+<section class="sec" id="su-misura" aria-labelledby="own-title">
+  <div class="wrap own-grid">
+    <div class="own-box reveal">
+      <h2 id="own-title">Su misura per la tua agenzia.</h2>
+      <p>Chi apre l'app vede la tua agenzia, non la nostra.</p>
+      <div class="swatches" aria-hidden="true">
+        <span style="background:#E8590C"></span><span style="background:#1F2A44"></span><span style="background:#F4F4F5"></span>
+      </div>
+      <ul class="ticks">
+        <li><i class="ph ph-palette" aria-hidden="true"></i>Logo, colori e nome della tua agenzia</li>
+        <li><i class="ph ph-list-checks" aria-hidden="true"></i>Tipologie di evento, stati e momenti li modifichi tu dalle opzioni</li>
+        <li><i class="ph ph-device-mobile" aria-hidden="true"></i>Si installa sul telefono senza passare dagli store</li>
+        <li><i class="ph ph-hard-drives" aria-hidden="true"></i>Ogni agenzia ha la sua installazione e i suoi dati</li>
+      </ul>
+    </div>
+    <div class="own-box safe reveal d1">
+      <i class="ph ph-shield-check big-ico" aria-hidden="true"></i>
+      <h2>Sicurezza e controllo.</h2>
+      <p>Ognuno vede solo quello che il suo ruolo permette.</p>
+      <ul class="ticks">
+        <li><i class="ph ph-lock-key" aria-hidden="true"></i>I permessi per ruolo sono applicati dal database, non solo nascosti sullo schermo</li>
+        <li><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i>Il registro delle modifiche dice chi ha cambiato cosa, e quando</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap own-more reveal">
+    <a class="link-arrow" href="connessione-ai.html">In arrivo: la connessione con il tuo assistente AI <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</section>
+
+<!-- parte:chiusura -->
+<section class="cta-band" aria-labelledby="cta-t">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-copy">
+        <h2 id="cta-t">Provalo con i tuoi eventi, non con le nostre parole.</h2>
+        <p>Ti registri, ricevi l'accesso a una demo con dati di esempio e la usi per 14 giorni con il tuo staff.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="demo.html">Prova la demo gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-ghost" href="prezzi.html">Vedi i prezzi</a>
+        </div>
+      </div>
+      <div class="cta-photo">
+        <img src="img/f-sax-dettaglio.jpg" width="2000" height="2000" loading="lazy" alt="Dettaglio delle mani di un sassofonista durante un concerto serale.">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /parte:chiusura -->
+</main>
+
+<!-- parte:piede -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">Q</span>Quinte</a>
+        <p>Il gestionale per agenzie di musica e intrattenimento per eventi: artisti, service, clienti e contratti in un'unica app.</p>
+        <a class="btn btn-primary btn-sm" href="demo.html">Prova la demo gratis</a>
+      </div>
+      <nav aria-labelledby="f-prodotto">
+        <h2 id="f-prodotto">Prodotto</h2>
+        <ul>
+          <li><a href="funzioni.html">Funzioni</a></li>
+          <li><a href="connessione-ai.html">Connessione AI</a></li>
+          <li><a href="prezzi.html">Prezzi</a></li>
+          <li><a href="domande.html">Domande frequenti</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-piani">
+        <h2 id="f-piani">Piani</h2>
+        <ul>
+          <li><a href="piano-small.html">Small</a></li>
+          <li><a href="piano-medium.html">Medium</a></li>
+          <li><a href="piano-large.html">Large</a></li>
+          <li><a href="demo.html">Prova la demo</a></li>
+        </ul>
+      </nav>
+      <nav aria-labelledby="f-azienda">
+        <h2 id="f-azienda">Azienda</h2>
+        <ul>
+          <li><a href="chi-siamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="cookie.html">Cookie</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>© 2026 Quinte. Prezzi IVA esclusa.</p>
+      <button type="button" data-cookie-apri>Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" hidden>
+  <h2 id="cookie-t">Cookie</h2>
+  <p>Usiamo solo cookie tecnici, necessari al sito. Se un giorno useremo cookie di statistica te lo chiederemo qui. <a href="cookie.html">Leggi la cookie policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-ghost btn-sm" type="button" data-cookie="rifiuta">Solo necessari</button>
+    <button class="btn btn-primary btn-sm" type="button" data-cookie="accetta">Ho capito</button>
+  </div>
+</div>
+
+<script src="assets/main.js"></script>
+<!-- /parte:piede -->
+<script>
+/* Solo per funzioni.html: accende nella barra delle aree la voce della sezione che stai leggendo */
+(function(){
+  var bar = document.querySelector('.areas .wrap');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  var links = Array.prototype.slice.call(bar.querySelectorAll('a'));
+  var byId = {};
+  links.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function accendi(a){
+    links.forEach(function(l){ l.classList.toggle('on', l === a); if (l === a) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current'); });
+    if (!a) return;
+    var b = bar.getBoundingClientRect(), r = a.getBoundingClientRect();
+    if (r.left < b.left || r.right > b.right){
+      bar.scrollTo({left: bar.scrollLeft + (r.left - b.left) - (b.width - r.width) / 2, behavior: reduce ? 'auto' : 'smooth'});
+    }
+  }
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting) accendi(byId[e.target.id]); });
+  }, {rootMargin: '-35% 0px -60% 0px'});
+  Object.keys(byId).forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
+  var testa = document.querySelector('.page-head');
+  if (testa) new IntersectionObserver(function(es){ if (es[0].isIntersecting) accendi(null); }, {rootMargin: '-35% 0px -60% 0px'}).observe(testa);
+})();
+</script>
+</body>
+</html>
